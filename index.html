@@ -1,109 +1,343 @@
+```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Syed Faiz Geo</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Helvetica,sans-serif;
-}
-
-body{
-    background:#f5f5f5;
-    color:#222;
-}
-
-header{
-    background:#111;
-    color:white;
-    text-align:center;
-    padding:50px 20px;
-}
-
-header h1{
-    font-size:42px;
-}
-
-header p{
-    margin-top:10px;
-    color:#ccc;
-}
-
-.container{
-    max-width:900px;
-    margin:40px auto;
-    background:white;
-    padding:30px;
-    border-radius:10px;
-    box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
-
-h2{
-    margin-bottom:15px;
-}
-
-p{
-    line-height:1.8;
-    margin-bottom:15px;
-}
-
-.button{
-    display:inline-block;
-    margin-top:20px;
-    background:#0066ff;
-    color:white;
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:6px;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    color:#777;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Faiz Afroz | Independent Journalist, Political Commentator & Author</title>
+    
+    <!-- Google Fonts for typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Social Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            800: '#243b53',
+                            900: '#102a43',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom styles for subtle enhancements */
+        .hero-pattern {
+            background-color: #102a43;
+            background-image: radial-gradient(#243b53 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .social-btn {
+            transition: all 0.3s ease;
+        }
+        .social-btn:hover {
+            transform: translateY(-2px);
+        }
+        /* Custom class for profile photo */
+        .profile-photo {
+            /* Additional styles can go here */
+            object-position: top center; /* Helps keep faces visible if the image is cropped */
+        }
+    </style>
 </head>
+<body class="font-sans text-brand-900 bg-brand-50 antialiased selection:bg-brand-800 selection:text-white">
 
-<body>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="font-serif text-2xl font-bold tracking-tight text-brand-900">SFA.</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-brand-900 font-medium transition-colors">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-brand-900 font-medium transition-colors">About</a>
+                    <a href="#commentary" class="text-gray-600 hover:text-brand-900 font-medium transition-colors">Commentary</a>
+                    <a href="#contact" class="text-gray-600 hover:text-brand-900 font-medium transition-colors">Contact</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 shadow-lg">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">About</a>
+                <a href="#commentary" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">Commentary</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-<header>
-<h1>Syed Faiz Geo</h1>
-<p>Independent Journalist • Political Commentary • Geopolitics</p>
-</header>
+    <!-- Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden hero-pattern text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="max-w-3xl">
+                <p class="text-brand-100 font-medium tracking-wider uppercase mb-4 text-sm md:text-base">Independent Journalism</p>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold leading-tight mb-6">
+                    Syed Faiz Afroz
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-10 max-w-2xl">
+                    <span class="text-white font-semibold">Independent Journalist, Political Commentator & Author.</span> Unraveling complex global narratives, international relations, and the policies that shape our world.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#about" class="bg-white text-brand-900 px-8 py-3 rounded-sm font-semibold hover:bg-gray-100 transition-colors shadow-lg">
+                        Read Biography
+                    </a>
+                    <a href="#commentary" class="border border-white/30 hover:border-white text-white px-8 py-3 rounded-sm font-semibold transition-colors backdrop-blur-sm">
+                        Latest Analysis
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Decorative element -->
+        <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none transform translate-x-1/4 translate-y-1/4 hidden lg:block">
+            <i class="fa-solid fa-globe text-[400px]"></i>
+        </div>
+    </section>
 
-<div class="container">
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+                
+                <!-- Image Column -->
+                <div class="lg:col-span-5 relative group">
+                    <div class="absolute inset-0 bg-brand-900 translate-x-4 translate-y-4 rounded-sm transition-transform group-hover:translate-x-6 group-hover:translate-y-6"></div>
+                    
+                    <!-- Updated with Raw GitHub URL -->
+                    <img src="https://raw.githubusercontent.com/faizabdii123/Syed-faiz-geo/main/705451064_18596133991062450_398762657180937418_n.jpg" alt="Syed Faiz Afroz" class="profile-photo relative z-10 w-full h-[500px] object-cover rounded-sm shadow-xl">
+                    
+                    <div class="absolute bottom-6 left-6 z-20 bg-white p-4 shadow-lg rounded-sm">
+                        <p class="font-serif font-bold text-xl">Syed Faiz Afroz</p>
+                        <p class="text-xs text-gray-500 uppercase tracking-wide font-semibold mt-1">Independent Journalist, Political Commentator & Author</p>
+                    </div>
+                </div>
 
-<h2>Who is Syed Faiz?</h2>
+                <!-- Text & Socials Column -->
+                <div class="lg:col-span-7">
+                    <h2 class="text-4xl font-serif font-bold mb-6 text-brand-900">About Syed Faiz Afroz</h2>
+                    <div class="prose prose-lg text-gray-600 mb-10 space-y-4">
+                        <p>
+                            Syed Faiz Afroz is an independent journalist, political commentator, and author whose work focuses on geopolitics, international affairs, and the stories shaping today's world.
+                        </p>
+                        <p>
+                            He believes journalism is at its best when it asks difficult questions, challenges those in power, and puts facts before narratives. His reporting and analysis are driven by a commitment to helping readers understand complex global issues with clarity and context.
+                        </p>
+                        <p>
+                            As an author, Syed Faiz Afroz is passionate about exploring history, politics, and international relations beyond the daily news cycle. His writing aims to inform, encourage critical thinking, and spark meaningful conversations.
+                        </p>
+                        <p>
+                            As more people seek independent voices and diverse perspectives, he remains committed to building a reader-supported platform dedicated to honest reporting, thoughtful analysis, and open discussion.
+                        </p>
+                        <p>
+                            This website is more than a news platform. It is a community for readers who value curiosity, accountability, and independent journalism.
+                        </p>
+                        <p>
+                            Every visit, every share, and every message of support helps keep independent journalism alive. Thank you for being part of the journey.
+                        </p>
+                    </div>
 
-<p>
-Syed Faiz Geo is an independent journalist focused on international affairs,
-geopolitics, and political analysis. His work aims to explain global events
-through independent reporting and commentary.
-</p>
+                    <!-- Direct Social Links -->
+                    <div class="bg-brand-50 p-8 rounded-xl border border-brand-100">
+                        <h3 class="text-lg font-semibold text-brand-900 mb-4">Follow the Conversation</h3>
+                        <p class="text-gray-600 mb-6 text-sm">Join Syed for real-time geopolitical updates, threads, and commentary directly on social media.</p>
+                        
+                        <div class="flex flex-col sm:flex-row flex-wrap gap-4">
+                            <!-- X (Twitter) -->
+                            <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="social-btn flex items-center justify-center gap-3 bg-black text-white px-6 py-3 rounded-lg hover:bg-gray-800 font-medium w-full sm:w-auto">
+                                <i class="fa-brands fa-x-twitter text-xl"></i>
+                                <span>X (Twitter)</span>
+                            </a>
+                            
+                            <!-- Threads -->
+                            <a href="https://www.threads.com/@syedfaiz.geo" target="_blank" rel="noopener noreferrer" class="social-btn flex items-center justify-center gap-3 bg-[#101010] text-white px-6 py-3 rounded-lg hover:bg-gray-800 font-medium border border-gray-800 w-full sm:w-auto">
+                                <i class="fa-brands fa-threads text-xl"></i>
+                                <span>Threads</span>
+                            </a>
 
-<p>
-The platform covers world news, foreign policy, conflicts, and political
-developments while encouraging readers to explore multiple perspectives.
-</p>
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/syedfaiz.geo/" target="_blank" rel="noopener noreferrer" class="social-btn flex items-center justify-center gap-3 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white px-6 py-3 rounded-lg hover:opacity-90 font-medium w-full sm:w-auto">
+                                <i class="fa-brands fa-instagram text-xl"></i>
+                                <span>Instagram</span>
+                            </a>
+                        </div>
+                    </div>
 
-<p>
-Thank you for visiting and supporting independent journalism.
-</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<a class="button" href="#">Follow Updates</a>
+    <!-- Recent Commentary / Articles -->
+    <section id="commentary" class="py-24 bg-brand-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-end mb-12">
+                <div>
+                    <h2 class="text-4xl font-serif font-bold text-brand-900 mb-3">Latest Commentary</h2>
+                    <p class="text-gray-600 text-lg">Recent analysis on global affairs and geopolitical shifts.</p>
+                </div>
+                <a href="#" class="hidden md:inline-flex items-center text-brand-800 font-semibold hover:text-brand-900 group">
+                    View All Articles <i class="fa-solid fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                </a>
+            </div>
 
-</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Article 1 -->
+                <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Geopolitics" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold tracking-wide text-brand-800 uppercase mb-2">Middle East</div>
+                        <h3 class="text-xl font-serif font-bold text-gray-900 mb-3 hover:text-brand-800 cursor-pointer">The Shifting Sands of Regional Alliances</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">An in-depth look at how recent diplomatic agreements are reshaping the historical balance of power in the region, creating new economic corridors.</p>
+                        <span class="text-sm text-gray-500 font-medium">Read more &rarr;</span>
+                    </div>
+                </article>
 
-<footer>
-© 2026 Syed Faiz Geo. All Rights Reserved.
-</footer>
+                <!-- Article 2 -->
+                <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1614026480209-cd9934144671?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Global Trade" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold tracking-wide text-brand-800 uppercase mb-2">Global Economy</div>
+                        <h3 class="text-xl font-serif font-bold text-gray-900 mb-3 hover:text-brand-800 cursor-pointer">Resource Diplomacy in the 21st Century</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">How strategic minerals and energy dependencies are becoming the primary weapons in modern geopolitical negotiations and trade wars.</p>
+                        <span class="text-sm text-gray-500 font-medium">Read more &rarr;</span>
+                    </div>
+                </article>
 
+                <!-- Article 3 -->
+                <article class="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+                    <div class="h-48 bg-gray-200 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Cyber Warfare" class="w-full h-full object-cover transition-transform hover:scale-105 duration-500 filter grayscale">
+                    </div>
+                    <div class="p-6">
+                        <div class="text-xs font-semibold tracking-wide text-brand-800 uppercase mb-2">Technology & Statecraft</div>
+                        <h3 class="text-xl font-serif font-bold text-gray-900 mb-3 hover:text-brand-800 cursor-pointer">The Silent War: Cyber Security as Foreign Policy</h3>
+                        <p class="text-gray-600 mb-4 line-clamp-3">Evaluating state-sponsored cyber operations and their implications for traditional military deterrence and international law.</p>
+                        <span class="text-sm text-gray-500 font-medium">Read more &rarr;</span>
+                    </div>
+                </article>
+            </div>
+            
+            <div class="mt-8 text-center md:hidden">
+                 <a href="#" class="inline-flex items-center text-brand-800 font-semibold hover:text-brand-900">
+                    View All Articles <i class="fa-solid fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Newsletter -->
+    <section id="contact" class="py-24 bg-white border-t border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <i class="fa-regular fa-envelope text-4xl text-brand-800 mb-6"></i>
+            <h2 class="text-4xl font-serif font-bold text-brand-900 mb-4">Get in Touch</h2>
+            <p class="text-xl text-gray-600 mb-10">For media inquiries, interviews, or speaking engagements.</p>
+            
+            <a href="mailto:faizafroz9451@gmail.com" class="inline-block bg-brand-900 text-white px-10 py-4 rounded-sm font-semibold hover:bg-brand-800 transition-colors shadow-md text-lg">
+                Email Syed
+            </a>
+            
+            <div class="mt-16 pt-12 border-t border-gray-100">
+                <h3 class="font-serif text-2xl font-bold mb-4">Subscribe to the Briefing</h3>
+                <p class="text-gray-600 mb-6">Receive independent geopolitical analysis directly to your inbox.</p>
+                <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onsubmit="event.preventDefault(); alert('Thank you for subscribing! (This is a demo)');">
+                    <input type="email" placeholder="Your email address" required class="flex-grow px-4 py-3 border border-gray-300 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-800 focus:border-transparent">
+                    <button type="submit" class="bg-gray-900 text-white px-6 py-3 rounded-sm font-medium hover:bg-black transition-colors whitespace-nowrap">
+                        Subscribe
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 text-white py-12 text-center border-t border-brand-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-serif text-3xl font-bold mb-6">Syed Faiz Afroz</h2>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://x.com/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">X (Twitter)</span>
+                    <i class="fa-brands fa-x-twitter text-2xl"></i>
+                </a>
+                <a href="https://www.threads.com/@syedfaiz.geo" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">Threads</span>
+                    <i class="fa-brands fa-threads text-2xl"></i>
+                </a>
+                <a href="https://www.instagram.com/syedfaiz.geo/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">Instagram</span>
+                    <i class="fa-brands fa-instagram text-2xl"></i>
+                </a>
+                <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                    <span class="sr-only">LinkedIn</span>
+                    <i class="fa-brands fa-linkedin-in text-2xl"></i>
+                </a>
+            </div>
+            <p class="text-gray-400 text-sm">
+                &copy; <span id="year"></span> Syed Faiz Afroz. All rights reserved. <br> Independent Journalist, Political Commentator & Author.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile menu toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = menu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
 </body>
 </html>
+
+
+
+```
