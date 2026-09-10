@@ -6,2099 +6,677 @@
 
   <title>Geopolitical Commentary | Syed Faiz Geo</title>
 
-  <meta
-    name="description"
-    content="Geopolitical commentary, observations and conversations by Syed Faiz Geo."
-  >
-
-  <meta name="author" content="Syed Faiz Geo">
-
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-    rel="stylesheet"
-  >
-
-  <!-- Font Awesome -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-  >
-
   <style>
-
-    /* =========================
-       BASE
-    ========================= */
-
-    html {
-      scroll-behavior: smooth;
+    * {
+      box-sizing: border-box;
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      color: #111827;
-      background:
-        radial-gradient(
-          circle at 10% 10%,
-          rgba(79, 70, 229, 0.08),
-          transparent 25%
-        ),
-        radial-gradient(
-          circle at 90% 20%,
-          rgba(219, 39, 119, 0.07),
-          transparent 25%
-        ),
-        #f8fafc;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f8f8f6;
+      color: #111;
     }
 
     .serif {
-      font-family: 'Playfair Display', serif;
+      font-family: Georgia, serif;
     }
 
-
-    /* =========================
-       GRADIENT
-    ========================= */
-
-    .gradient-text {
-      background:
-        linear-gradient(
-          90deg,
-          #4f46e5,
-          #9333ea,
-          #db2777,
-          #2563eb
-        );
-
-      background-size: 300% 300%;
-
-      -webkit-background-clip: text;
-      background-clip: text;
-
-      color: transparent;
-
-      animation: gradientMove 7s ease infinite;
-    }
-
-    .gradient-line {
-      background:
-        linear-gradient(
-          90deg,
-          #4f46e5,
-          #9333ea,
-          #db2777,
-          #2563eb
-        );
-
-      background-size: 300% 300%;
-
-      animation: gradientMove 6s ease infinite;
-    }
-
-    @keyframes gradientMove {
-
-      0% {
-        background-position: 0% 50%;
-      }
-
-      50% {
-        background-position: 100% 50%;
-      }
-
-      100% {
-        background-position: 0% 50%;
-      }
-
-    }
-
-
-    /* =========================
-       HEADER
-    ========================= */
-
-    .glass {
-      background: rgba(255,255,255,0.88);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-    }
-
-
-    /* =========================
-       HERO ANIMATION
-    ========================= */
-
-    .fade-up {
-      animation: fadeUp 0.8s ease both;
-    }
-
-    @keyframes fadeUp {
-
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
-
-    /* =========================
-       SLIDER
-    ========================= */
-
-    .slider-window {
-      overflow: hidden;
-      width: 100%;
-      touch-action: pan-y;
-    }
-
-    .slider-track {
+    .slides {
       display: flex;
-      transition: transform 0.75s cubic-bezier(0.77, 0, 0.175, 1);
-      will-change: transform;
+      transition: transform 0.6s ease;
     }
 
     .slide {
       min-width: 100%;
-      width: 100%;
-      flex-shrink: 0;
-    }
-
-
-    /* =========================
-       POST CARD
-    ========================= */
-
-    .post-card {
-      background: rgba(255,255,255,0.96);
-
-      border: 1px solid #e5e7eb;
-
-      border-radius: 28px;
-
-      overflow: hidden;
-
-      box-shadow:
-        0 15px 40px rgba(15,23,42,0.08);
-    }
-
-
-    /* =========================
-       IMAGE
-    ========================= */
-
-    .post-image-container {
-      background: #f1f5f9;
-
-      display: flex;
-
-      justify-content: center;
-
-      align-items: center;
-
-      padding: 14px;
     }
 
     .post-image {
-      display: block;
-
       width: 100%;
-
-      max-width: 820px;
-
-      max-height: 720px;
-
+      height: auto;
+      max-height: 750px;
       object-fit: contain;
+      display: block;
+      background: #f1f1ef;
+    }
 
-      margin: 0 auto;
-
+    .slider-box {
+      position: relative;
+      overflow: hidden;
       border-radius: 18px;
-
       background: white;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
 
-
-    /* =========================
-       BUTTON
-    ========================= */
-
-    .arrow-button {
-      width: 48px;
-      height: 48px;
-
-      border-radius: 50%;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      background: rgba(17,24,39,0.9);
-
-      color: white;
-
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px;
+      height: 44px;
       border: none;
-
+      border-radius: 50%;
+      background: white;
+      color: black;
+      font-size: 22px;
       cursor: pointer;
-
-      transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        opacity 0.2s ease;
-
-      box-shadow:
-        0 10px 25px rgba(0,0,0,0.18);
+      z-index: 10;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.18);
     }
 
-    .arrow-button:hover {
-      transform: scale(1.08);
-      background: #4f46e5;
+    .arrow:hover {
+      background: black;
+      color: white;
     }
 
-    .arrow-button:active {
-      transform: scale(0.96);
+    .left {
+      left: 15px;
     }
 
+    .right {
+      right: 15px;
+    }
 
-    /* =========================
-       DOTS
-    ========================= */
-
-    .slider-dot {
-      width: 8px;
-      height: 8px;
-
+    .original-button {
+      background: #111;
+      color: white;
+      text-decoration: none;
+      padding: 12px 20px;
       border-radius: 999px;
-
-      background: #cbd5e1;
-
-      transition:
-        width 0.3s ease,
-        background 0.3s ease;
+      font-size: 14px;
+      font-weight: bold;
+      display: inline-block;
     }
 
-    .slider-dot.active {
-      width: 28px;
-      background: #111827;
+    .original-button:hover {
+      background: #333;
     }
 
-
-    /* =========================
-       PROGRESS BAR
-    ========================= */
-
-    .progress-bar {
-      height: 3px;
-
-      width: 0%;
-
-      background:
-        linear-gradient(
-          90deg,
-          #4f46e5,
-          #9333ea,
-          #db2777
-        );
-
-      transition: width 0.1s linear;
+    .dot {
+      width: 9px;
+      height: 9px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      background: #d1d1d1;
     }
 
+    .dot.active {
+      background: #111;
+    }
 
-    /* =========================
-       MOBILE
-    ========================= */
+    @media (max-width: 600px) {
+      .arrow {
+        width: 38px;
+        height: 38px;
+        font-size: 18px;
+      }
 
-    @media (max-width: 640px) {
+      .left {
+        left: 8px;
+      }
 
-      .post-image-container {
-        padding: 8px;
+      .right {
+        right: 8px;
       }
 
       .post-image {
-        max-height: 650px;
-        border-radius: 14px;
+        max-height: 600px;
       }
-
-      .arrow-button {
-        width: 42px;
-        height: 42px;
-      }
-
     }
-
   </style>
 </head>
 
-
 <body>
 
+  <!-- HEADER -->
+  <header style="background:white;border-bottom:1px solid #e5e5e5;">
+    <div style="
+      max-width:1100px;
+      margin:auto;
+      padding:18px 20px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    ">
 
-  <!-- =====================================================
-       HEADER
-  ====================================================== -->
+      <a href="index.html"
+         style="
+           text-decoration:none;
+           color:#111;
+           display:flex;
+           align-items:center;
+           gap:12px;
+         ">
 
-  <nav class="sticky top-0 z-50 glass border-b border-gray-200">
+        <div style="
+          width:44px;
+          height:44px;
+          border-radius:50%;
+          background:#111;
+          color:white;
+          display:flex;
+          align-items:center;
+          justify-content:center;
+          font-weight:800;
+          font-size:13px;
+        ">
+          SFA.
+        </div>
 
-    <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
-
-      <div class="h-20 flex items-center justify-between">
-
-
-        <!-- LOGO -->
-
-        <a
-          href="index.html"
-          class="flex items-center gap-3 group"
-        >
-
-          <!-- Same simple globe identity -->
-          <div
-            class="w-11 h-11 rounded-full bg-gray-900 text-white
-                   flex items-center justify-center
-                   shadow-lg
-                   group-hover:scale-105
-                   transition"
-          >
-
-            <i class="fa-solid fa-earth-americas"></i>
-
+        <div>
+          <div style="
+            font-size:18px;
+            font-weight:700;
+            line-height:1;
+          ">
+            Syed Faiz Geo
           </div>
 
-
-          <div>
-
-            <div class="font-extrabold text-lg tracking-tight">
-              Syed Faiz Geo
-            </div>
-
-            <div class="text-xs text-gray-500">
-              Independent Journalism
-            </div>
-
+          <div style="
+            font-size:11px;
+            color:#777;
+            margin-top:5px;
+          ">
+            Independent Journalism
           </div>
+        </div>
 
+      </a>
+
+      <nav style="
+        display:flex;
+        gap:22px;
+        font-size:14px;
+        font-weight:600;
+      ">
+
+        <a href="index.html"
+           style="color:#111;text-decoration:none;">
+          Home
         </a>
 
+        <a href="posts.html"
+           style="color:#111;text-decoration:none;">
+          Commentary
+        </a>
 
-        <!-- DESKTOP NAV -->
-
-        <div class="hidden md:flex items-center gap-7 text-sm font-semibold">
-
-          <a
-            href="index.html"
-            class="text-gray-600 hover:text-gray-900 transition"
-          >
-            Home
-          </a>
-
-          <a
-            href="index.html#about"
-            class="text-gray-600 hover:text-gray-900 transition"
-          >
-            About
-          </a>
-
-          <a
-            href="posts.html"
-            class="text-gray-900"
-          >
-            Commentary
-          </a>
-
-          <a
-            href="index.html#books"
-            class="text-gray-600 hover:text-gray-900 transition"
-          >
-            Books
-          </a>
-
-          <a
-            href="index.html#contact"
-            class="text-gray-600 hover:text-gray-900 transition"
-          >
-            Contact
-          </a>
-
-        </div>
-
-
-        <!-- SOCIAL -->
-
-        <div class="hidden sm:flex items-center gap-4">
-
-          <a
-            href="https://www.threads.com/@syedfaiz.geo"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Threads"
-            class="text-gray-600 hover:text-black transition text-lg"
-          >
-            <i class="fa-brands fa-threads"></i>
-          </a>
-
-
-          <a
-            href="https://www.instagram.com/syedfaiz.geo/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            class="text-gray-600 hover:text-pink-600 transition text-lg"
-          >
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-
-
-          <a
-            href="https://x.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="X"
-            class="text-gray-600 hover:text-black transition text-lg"
-          >
-            <i class="fa-brands fa-x-twitter"></i>
-          </a>
-
-        </div>
-
-      </div>
+      </nav>
 
     </div>
-
-  </nav>
-
-
-
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
-
-  <header class="relative overflow-hidden">
-
-    <div
-      class="max-w-5xl mx-auto px-5 sm:px-6
-             pt-16 sm:pt-20
-             pb-10 sm:pb-14
-             text-center"
-    >
-
-      <div class="fade-up">
-
-
-        <!-- SMALL HEADING -->
-
-        <div
-          class="inline-flex items-center gap-2
-                 px-4 py-2
-                 rounded-full
-                 bg-white
-                 border border-gray-200
-                 shadow-sm
-                 text-xs sm:text-sm
-                 font-bold
-                 tracking-wide
-                 text-gray-600
-                 uppercase
-                 mb-6"
-        >
-
-          <span
-            class="w-2 h-2 rounded-full
-                   bg-green-500
-                   animate-pulse"
-          ></span>
-
-          My Latest Commentary
-
-        </div>
-
-
-        <!-- MAIN TITLE -->
-
-        <h1
-          class="serif
-                 text-5xl
-                 sm:text-6xl
-                 lg:text-7xl
-                 font-bold
-                 tracking-tight
-                 mb-6"
-        >
-
-          Geopolitical
-          <span class="gradient-text">
-            Commentary
-          </span>
-
-        </h1>
-
-
-        <!-- RAW LINE -->
-
-        <p
-          class="max-w-3xl mx-auto
-                 text-lg
-                 sm:text-xl
-                 leading-relaxed
-                 text-gray-600"
-        >
-
-          What I see.
-          What I question.
-          What the headlines leave behind.
-
-        </p>
-
-
-      </div>
-
-
-      <!-- GRADIENT LINE -->
-
-      <div
-        class="gradient-line
-               h-1
-               w-24
-               mx-auto
-               mt-9
-               rounded-full"
-      ></div>
-
-    </div>
-
   </header>
 
 
+  <!-- HEADING -->
+  <section style="
+    max-width:900px;
+    margin:auto;
+    padding:65px 20px 35px;
+    text-align:center;
+  ">
 
-  <!-- =====================================================
-       SLIDER
-  ====================================================== -->
-
-  <main
-    class="max-w-5xl
-           mx-auto
-           px-4 sm:px-6
-           pb-20"
-  >
-
-
-    <!-- SLIDER CONTROLS -->
-
-    <div
-      class="flex
-             items-center
-             justify-between
-             mb-4
-             px-1"
-    >
-
-      <div
-        id="slideCounter"
-        class="text-sm font-bold text-gray-500"
-      >
-        01 / 05
-      </div>
-
-
-      <div
-        class="text-xs
-               uppercase
-               tracking-widest
-               text-gray-400
-               font-semibold"
-      >
-        Latest Posts
-      </div>
-
+    <div style="
+      font-size:12px;
+      letter-spacing:3px;
+      font-weight:800;
+      color:#777;
+      margin-bottom:15px;
+    ">
+      MY LATEST &amp; POPULAR COMMENTARY
     </div>
 
-
-
-    <!-- SLIDER WINDOW -->
-
-    <div
-      id="sliderWindow"
-      class="slider-window rounded-[28px]"
-    >
-
-      <div
-        id="sliderTrack"
-        class="slider-track"
-      >
-
-
-        <!-- =================================================
-             SLIDE 1
-        ================================================== -->
-
-        <article class="slide">
-
-          <div class="post-card">
-
-
-            <!-- IMAGE -->
-
-            <div class="post-image-container">
-
-              <img
-                src="images/posts/anne-frank-palestine.jpg"
-                alt="Syed Faiz Geo Threads commentary about Palestine and Anne Frank"
-                class="post-image"
-              >
-
-            </div>
-
-
-            <!-- PROGRESS -->
-
-            <div class="progress-bar"></div>
-
-
-            <!-- CONTENT -->
-
-            <div class="p-6 sm:p-9">
-
-
-              <div
-                class="flex
-                       flex-wrap
-                       items-center
-                       gap-3
-                       mb-5"
-              >
-
-                <span
-                  class="px-3 py-1.5
-                         rounded-full
-                         bg-indigo-50
-                         text-indigo-700
-                         text-xs
-                         font-bold
-                         uppercase"
-                >
-
-                  Threads
-
-                </span>
-
-
-                <span class="text-sm text-gray-500">
-                  July 11
-                </span>
-
-              </div>
-
-
-              <h2
-                class="serif
-                       text-3xl
-                       sm:text-4xl
-                       font-bold
-                       mb-5"
-              >
-                Palestine and Anne Frank
-              </h2>
-
-
-              <blockquote
-                class="border-l-4
-                       border-indigo-500
-                       pl-5
-                       text-lg
-                       sm:text-xl
-                       leading-relaxed
-                       text-gray-700"
-              >
-
-                <p>
-                  “Palestine doesn’t exist in history,” they say:
-                </p>
-
-                <p class="mt-4">
-                  Meanwhile, Anne Frank in 1944:
-                </p>
-
-                <p class="mt-4 italic">
-                  “Margot wants to become a nurse later on, and then to go to Palestine to work with babies.”
-                </p>
-
-                <p class="mt-4 text-base text-gray-500">
-                  — The Diary of a Young Girl, 15 July 1944
-                </p>
-
-              </blockquote>
-
-
-              <div
-                class="mt-7
-                       flex
-                       flex-wrap
-                       gap-x-6
-                       gap-y-3
-                       text-sm
-                       text-gray-500"
-              >
-
-                <span>
-                  <i class="fa-regular fa-heart mr-1"></i>
-                  22.6K likes
-                </span>
-
-                <span>
-                  <i class="fa-regular fa-comment mr-1"></i>
-                  962 comments
-                </span>
-
-                <span>
-                  <i class="fa-solid fa-retweet mr-1"></i>
-                  2.2K reposts
-                </span>
-
-                <span>
-                  <i class="fa-solid fa-share mr-1"></i>
-                  256 shares
-                </span>
-
-              </div>
-
-
-              <div class="mt-8">
-
-                <a
-                  href="https://www.threads.com/share/BAaVJNiwvM/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex
-                         items-center
-                         gap-2
-                         px-5
-                         py-3
-                         rounded-xl
-                         bg-gray-900
-                         text-white
-                         font-semibold
-                         hover:bg-indigo-600
-                         transition"
-                >
-
-                  <i class="fa-brands fa-threads"></i>
-
-                  Read Original on Threads
-
-                  <i
-                    class="fa-solid
-                           fa-arrow-up-right-from-square
-                           text-xs"
-                  ></i>
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- =================================================
-             SLIDE 2
-        ================================================== -->
-
-        <article class="slide">
-
-          <div class="post-card">
-
-            <div class="post-image-container">
-
-              <img
-                src="images/posts/children-fifa.jpg"
-                alt="Syed Faiz Geo Threads commentary about children and the FIFA World Cup"
-                loading="lazy"
-                class="post-image"
-              >
-
-            </div>
-
-            <div class="progress-bar"></div>
-
-
-            <div class="p-6 sm:p-9">
-
-              <div class="flex flex-wrap items-center gap-3 mb-5">
-
-                <span
-                  class="px-3 py-1.5
-                         rounded-full
-                         bg-purple-50
-                         text-purple-700
-                         text-xs
-                         font-bold
-                         uppercase"
-                >
-                  Threads
-                </span>
-
-                <span class="text-sm text-gray-500">
-                  July 21
-                </span>
-
-              </div>
-
-
-              <h2
-                class="serif
-                       text-3xl
-                       sm:text-4xl
-                       font-bold
-                       mb-5"
-              >
-                What Children Can Teach Us
-              </h2>
-
-
-              <blockquote
-                class="border-l-4
-                       border-purple-500
-                       pl-5
-                       text-lg
-                       sm:text-xl
-                       leading-relaxed
-                       text-gray-700"
-              >
-
-                <p>
-                  We aren't born racist. It is something we are taught.
-                  This beautiful moment reminds us that kindness,
-                  friendship, and love come naturally.
-                </p>
-
-                <p class="mt-4">
-                  We have so much to learn from children. ❤️
-                </p>
-
-                <p class="mt-4">
-                  For me, this is the best picture of the entire FIFA World Cup 2026.
-                </p>
-
-              </blockquote>
-
-
-              <div
-                class="mt-7
-                       flex
-                       flex-wrap
-                       gap-x-6
-                       gap-y-3
-                       text-sm
-                       text-gray-500"
-              >
-
-                <span>
-                  <i class="fa-regular fa-heart mr-1"></i>
-                  20K likes
-                </span>
-
-                <span>
-                  <i class="fa-regular fa-comment mr-1"></i>
-                  296 comments
-                </span>
-
-                <span>
-                  <i class="fa-solid fa-retweet mr-1"></i>
-                  904 reposts
-                </span>
-
-                <span>
-                  <i class="fa-solid fa-share mr-1"></i>
-                  463 shares
-                </span>
-
-              </div>
-
-
-              <div class="mt-8">
-
-                <a
-                  href="https://www.threads.com/share/BAagAnnjlK/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex
-                         items-center
-                         gap-2
-                         px-5
-                         py-3
-                         rounded-xl
-                         bg-gray-900
-                         text-white
-                         font-semibold
-                         hover:bg-purple-600
-                         transition"
-                >
-
-                  <i class="fa-brands fa-threads"></i>
-
-                  Read Original on Threads
-
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- =================================================
-             SLIDE 3
-        ================================================== -->
-
-        <article class="slide">
-
-          <div class="post-card">
-
-            <div class="post-image-container">
-
-              <img
-                src="images/posts/ms-rachel.jpg"
-                alt="Syed Faiz Geo Threads commentary about Ms. Rachel"
-                loading="lazy"
-                class="post-image"
-              >
-
-            </div>
-
-            <div class="progress-bar"></div>
-
-
-            <div class="p-6 sm:p-9">
-
-              <div class="flex flex-wrap items-center gap-3 mb-5">
-
-                <span
-                  class="px-3 py-1.5
-                         rounded-full
-                         bg-pink-50
-                         text-pink-700
-                         text-xs
-                         font-bold
-                         uppercase"
-                >
-                  Threads
-                </span>
-
-                <span class="text-sm text-gray-500">
-                  August 1
-                </span>
-
-              </div>
-
-
-              <h2
-                class="serif
-                       text-3xl
-                       sm:text-4xl
-                       font-bold
-                       mb-5"
-              >
-                Standing With Ms. Rachel
-              </h2>
-
-
-              <blockquote
-                class="border-l-4
-                       border-pink-500
-                       pl-5
-                       text-lg
-                       sm:text-xl
-                       leading-relaxed
-                       text-gray-700"
-              >
-
-                <p>
-                  You're either standing with Ms. Rachel, who loves
-                  and stands up for children, or you're standing with
-                  pedophiles.
-                </p>
-
-                <p class="mt-4">
-                  Pick your side.
-                </p>
-
-                <p class="mt-4 font-semibold">
-                  I'm with Ms. Rachel.
-                </p>
-
-              </blockquote>
-
-
-              <div
-                class="mt-7
-                       flex
-                       flex-wrap
-                       gap-x-6
-                       gap-y-3
-                       text-sm
-                       text-gray-500"
-              >
-
-                <span>
-                  <i class="fa-regular fa-heart mr-1"></i>
-                  39.5K likes
-                </span>
-
-                <span>
-                  <i class="fa-regular fa-comment mr-1"></i>
-                  554 comments
-                </span>
-
-                <span>
-                  <i class="fa-solid fa-retweet mr-1"></i>
-                  1.9K reposts
-                </span>
-
-                <span>
-                  <i class="fa-solid fa-share mr-1"></i>
-                  89 shares
-                </span>
-
-              </div>
-
-
-              <div class="mt-8">
-
-                <a
-                  href="https://www.threads.com/share/BAUc6mkKWU/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex
-                         items-center
-                         gap-2
-                         px-5
-                         py-3
-                         rounded-xl
-                         bg-gray-900
-                         text-white
-                         font-semibold
-                         hover:bg-pink-600
-                         transition"
-                >
-
-                  <i class="fa-brands fa-threads"></i>
-
-                  Read Original on Threads
-
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- =================================================
-             SLIDE 4
-        ================================================== -->
-
-        <article class="slide">
-
-          <div class="post-card">
-
-            <div class="post-image-container">
-
-              <img
-                src="images/posts/nyc-subway-heat.jpg"
-                alt="Syed Faiz Geo Threads commentary about New York City subway heat"
-                loading="lazy"
-                class="post-image"
-              >
-
-            </div>
-
-            <div class="progress-bar"></div>
-
-
-            <div class="p-6 sm:p-9">
-
-              <div class="flex flex-wrap items-center gap-3 mb-5">
-
-                <span
-                  class="px-3 py-1.5
-                         rounded-full
-                         bg-orange-50
-                         text-orange-700
-                         text-xs
-                         font-bold
-                         uppercase"
-                >
-                  Threads
-                </span>
-
-                <span class="text-sm text-gray-500">
-                  August 11
-                </span>
-
-              </div>
-
-
-              <h2
-                class="serif
-                       text-3xl
-                       sm:text-4xl
-                       font-bold
-                       mb-5"
-              >
-                Turning Subway Heat Into Energy
-              </h2>
-
-
-              <blockquote
-                class="border-l-4
-                       border-orange-500
-                       pl-5
-                       text-lg
-                       sm:text-xl
-                       leading-relaxed
-                       text-gray-700"
-              >
-
-                <p>
-                  NYC is literally turning subway heat into a heating system. 🔥🚇
-                </p>
-
-                <p class="mt-4">
-                  Mayor Mamdani’s plan would capture excess heat from
-                  subway stations, use it to cool the stations, then
-                  repurpose that heat to warm municipal buildings in winter.
-                </p>
-
-                <p class="mt-4">
-                  And yes, officials say it would be the first thermal
-                  energy system of its kind in any American transit system.
-                </p>
-
-                <p class="mt-4 font-semibold">
-                  That’s actually smart as hell. ♻️
-                </p>
-
-              </blockquote>
-
-
-              <div
-                class="mt-7
-                       flex
-                       flex-wrap
-                       gap-x-6
-                       gap-y-3
-                       text-sm
-                       text-gray-500"
-              >
-
-                <span>
-                  <i class="fa-regular fa-heart mr-1"></i>
-                  26.6K likes
-                </span>
-
-                <span>
-                  <i class="fa-regular fa-comment mr-1"></i>
-                  366 comments
-                </span>
-
-                <span>
-                  <i class="fa-solid fa-retweet mr-1"></i>
-                  1.6K reposts
-                </span>
-
-                <span>
-                  <i class="fa-solid fa-share mr-1"></i>
-                  675 shares
-                </span>
-
-              </div>
-
-
-              <div class="mt-8">
-
-                <a
-                  href="https://www.threads.com/share/BAcsiBV8N0/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex
-                         items-center
-                         gap-2
-                         px-5
-                         py-3
-                         rounded-xl
-                         bg-gray-900
-                         text-white
-                         font-semibold
-                         hover:bg-orange-600
-                         transition"
-                >
-
-                  <i class="fa-brands fa-threads"></i>
-
-                  Read Original on Threads
-
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-
-        <!-- =================================================
-             SLIDE 5
-        ================================================== -->
-
-        <article class="slide">
-
-          <div class="post-card">
-
-            <div class="post-image-container">
-
-              <img
-                src="images/posts/clarence-thomas.jpg"
-                alt="Syed Faiz Geo Substack commentary about Clarence Thomas"
-                loading="lazy"
-                class="post-image"
-              >
-
-            </div>
-
-            <div class="progress-bar"></div>
-
-
-            <div class="p-6 sm:p-9">
-
-              <div class="flex flex-wrap items-center gap-3 mb-5">
-
-                <span
-                  class="px-3 py-1.5
-                         rounded-full
-                         bg-orange-50
-                         text-orange-700
-                         text-xs
-                         font-bold
-                         uppercase"
-                >
-                  Substack
-                </span>
-
-                <span class="text-sm text-gray-500">
-                  August 25
-                </span>
-
-              </div>
-
-
-              <h2
-                class="serif
-                       text-3xl
-                       sm:text-4xl
-                       font-bold
-                       mb-5"
-              >
-                Clarence Thomas Commentary
-              </h2>
-
-
-              <blockquote
-                class="border-l-4
-                       border-orange-500
-                       pl-5
-                       text-lg
-                       sm:text-xl
-                       leading-relaxed
-                       text-gray-700"
-              >
-
-                <p>
-                  If you agree that Supreme Court Justice Clarence Thomas
-                  is a Trump asset and should be investigated for treason,
-                  say it loud. 👀
-                </p>
-
-              </blockquote>
-
-
-              <div
-                class="mt-7
-                       rounded-2xl
-                       bg-gray-50
-                       border
-                       border-gray-100
-                       p-5"
-              >
-
-                <p
-                  class="text-sm
-                         leading-relaxed
-                         text-gray-500"
-                >
-
-                  <strong class="text-gray-700">
-                    Commentary:
-                  </strong>
-
-                  This is political commentary originally published by
-                  Syed Faiz Geo. The statement is presented as commentary
-                  and opinion, not as an independently established fact.
-
-                </p>
-
-              </div>
-
-
-              <div class="mt-8">
-
-                <a
-                  href="https://substack.com/@syedfaizgeo/note/c-322616042?r=8kg1ua"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex
-                         items-center
-                         gap-2
-                         px-5
-                         py-3
-                         rounded-xl
-                         bg-gray-900
-                         text-white
-                         font-semibold
-                         hover:bg-orange-600
-                         transition"
-                >
-
-                  <i class="fa-solid fa-newspaper"></i>
-
-                  Read Original on Substack
-
-                  <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-
-                </a>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-      </div>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         SLIDER NAVIGATION
-    ====================================================== -->
-
-    <div
-      class="flex
-             items-center
-             justify-center
-             gap-5
-             mt-7"
-    >
-
-
-      <!-- PREVIOUS -->
-
-      <button
-        id="prevButton"
-        class="arrow-button"
-        aria-label="Previous post"
-        type="button"
-      >
-
-        <i class="fa-solid fa-chevron-left"></i>
-
-      </button>
-
-
-      <!-- DOTS -->
-
-      <div
-        id="sliderDots"
-        class="flex
-               items-center
-               gap-2"
-      >
-
-      </div>
-
-
-      <!-- NEXT -->
-
-      <button
-        id="nextButton"
-        class="arrow-button"
-        aria-label="Next post"
-        type="button"
-      >
-
-        <i class="fa-solid fa-chevron-right"></i>
-
-      </button>
-
-    </div>
-
-
-
-    <!-- =====================================================
-         SWIPE HINT
-    ====================================================== -->
-
-    <div
-      class="text-center
-             text-xs
-             text-gray-400
-             mt-5
-             sm:hidden"
-    >
-
-      <i class="fa-solid fa-arrows-left-right mr-1"></i>
-
-      Swipe to explore commentary
-
-    </div>
-
-
-
-    <!-- =====================================================
-         SUBSTACK CTA
-    ====================================================== -->
-
-    <section
-      class="relative
-             overflow-hidden
-             rounded-3xl
-             bg-gray-950
-             text-white
-             p-8
-             sm:p-12
-             mt-16"
-    >
-
-      <div
-        class="absolute
-               -top-20
-               -right-20
-               w-60
-               h-60
-               rounded-full
-               bg-purple-600/20
-               blur-3xl"
-      ></div>
-
-
-      <div
-        class="absolute
-               -bottom-20
-               -left-20
-               w-60
-               h-60
-               rounded-full
-               bg-indigo-600/20
-               blur-3xl"
-      ></div>
-
-
-      <div class="relative">
-
-
-        <div
-          class="flex
-                 items-center
-                 gap-3
-                 mb-5"
-        >
-
-          <span
-            class="w-11
-                   h-11
-                   rounded-xl
-                   bg-white/10
-                   flex
-                   items-center
-                   justify-center"
+    <h1 class="serif" style="
+      font-size:clamp(36px,6vw,62px);
+      margin:0 0 18px;
+      line-height:1.1;
+    ">
+      Geopolitical Commentary
+    </h1>
+
+    <p style="
+      color:#666;
+      font-size:16px;
+      margin:0;
+    ">
+      What I see. What I question. What the headlines leave behind.
+    </p>
+
+  </section>
+
+
+  <!-- SLIDER -->
+  <main style="
+    max-width:900px;
+    margin:auto;
+    padding:10px 20px 80px;
+  ">
+
+    <div class="slider-box">
+
+      <div class="slides" id="slides">
+
+
+        <!-- POST 1 -->
+        <div class="slide">
+
+          <img
+            src="images/posts/anne-frank-palestine.jpg"
+            class="post-image"
+            alt="Anne Frank Palestine commentary"
           >
 
-            <i class="fa-solid fa-envelope"></i>
+          <div style="
+            padding:18px 20px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:15px;
+          ">
 
-          </span>
+            <div style="
+              color:#777;
+              font-size:14px;
+            ">
+              ◷ &nbsp;07/11
+            </div>
 
+            <a
+              href="https://www.threads.com/share/BAaVJNiwvM/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="original-button"
+            >
+              Read Original →
+            </a>
 
-          <span
-            class="text-sm
-                   font-bold
-                   uppercase
-                   tracking-widest
-                   text-gray-400"
-          >
-            Behind the Headlines
-          </span>
+          </div>
 
         </div>
 
 
-        <h2
-          class="serif
-                 text-3xl
-                 sm:text-4xl
-                 font-bold
-                 mb-4"
-        >
-          Want more independent journalism?
-        </h2>
+        <!-- POST 2 -->
+        <div class="slide">
+
+          <img
+            src="images/posts/children-fifa.jpg"
+            class="post-image"
+            alt="Children FIFA World Cup commentary"
+          >
+
+          <div style="
+            padding:18px 20px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:15px;
+          ">
+
+            <div style="
+              color:#777;
+              font-size:14px;
+            ">
+              ◷ &nbsp;07/21
+            </div>
+
+            <a
+              href="https://www.threads.com/share/BAagAnnjlK/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="original-button"
+            >
+              Read Original →
+            </a>
+
+          </div>
+
+        </div>
 
 
-        <p
-          class="text-gray-300
-                 max-w-2xl
-                 leading-relaxed
-                 mb-7"
-        >
+        <!-- POST 3 -->
+        <div class="slide">
 
-          Follow Behind the Headlines with Syed Faiz Geo on Substack
-          for deeper analysis, commentary and stories beyond the headlines.
+          <img
+            src="images/posts/ms-rachel.jpg"
+            class="post-image"
+            alt="Ms Rachel commentary"
+          >
 
-        </p>
+          <div style="
+            padding:18px 20px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:15px;
+          ">
+
+            <div style="
+              color:#777;
+              font-size:14px;
+            ">
+              ◷ &nbsp;08/01
+            </div>
+
+            <a
+              href="https://www.threads.com/share/BAUc6mkKWU/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="original-button"
+            >
+              Read Original →
+            </a>
+
+          </div>
+
+        </div>
 
 
-        <a
-          href="https://syedfaizgeo.substack.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="inline-flex
-                 items-center
-                 gap-2
-                 px-6
-                 py-3.5
-                 rounded-xl
-                 bg-white
-                 text-gray-900
-                 font-bold
-                 hover:bg-gray-200
-                 transition"
-        >
+        <!-- POST 4 -->
+        <div class="slide">
 
-          Visit My Substack
+          <img
+            src="images/posts/nyc-subway-heat.jpg"
+            class="post-image"
+            alt="NYC subway heat commentary"
+          >
 
-          <i class="fa-solid fa-arrow-right"></i>
+          <div style="
+            padding:18px 20px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:15px;
+          ">
 
-        </a>
+            <div style="
+              color:#777;
+              font-size:14px;
+            ">
+              ◷ &nbsp;08/11
+            </div>
+
+            <a
+              href="https://www.threads.com/share/BAcsiBV8N0/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="original-button"
+            >
+              Read Original →
+            </a>
+
+          </div>
+
+        </div>
+
+
+        <!-- POST 5 -->
+        <div class="slide">
+
+          <img
+            src="images/posts/clarence-thomas.jpg"
+            class="post-image"
+            alt="Clarence Thomas commentary"
+          >
+
+          <div style="
+            padding:18px 20px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:15px;
+          ">
+
+            <div style="
+              color:#777;
+              font-size:14px;
+            ">
+              ◷ &nbsp;08/25
+            </div>
+
+            <a
+              href="https://substack.com/@syedfaizgeo/note/c-322616042?r=8kg1ua"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="original-button"
+            >
+              Read Original →
+            </a>
+
+          </div>
+
+        </div>
 
       </div>
 
-    </section>
 
+      <!-- LEFT ARROW -->
+      <button
+        class="arrow left"
+        onclick="previousSlide()"
+        aria-label="Previous"
+      >
+        ←
+      </button>
+
+
+      <!-- RIGHT ARROW -->
+      <button
+        class="arrow right"
+        onclick="nextSlide()"
+        aria-label="Next"
+      >
+        →
+      </button>
+
+    </div>
+
+
+    <!-- COUNTER + DOTS -->
+    <div style="
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:18px;
+      margin-top:22px;
+    ">
+
+      <span
+        id="counter"
+        style="
+          font-size:13px;
+          font-weight:700;
+        "
+      >
+        01 / 05
+      </span>
+
+      <div style="
+        display:flex;
+        gap:8px;
+      ">
+
+        <button class="dot active" onclick="goToSlide(0)"></button>
+        <button class="dot" onclick="goToSlide(1)"></button>
+        <button class="dot" onclick="goToSlide(2)"></button>
+        <button class="dot" onclick="goToSlide(3)"></button>
+        <button class="dot" onclick="goToSlide(4)"></button>
+
+      </div>
+
+    </div>
 
   </main>
 
 
-
-  <!-- =====================================================
-       FOOTER
-  ====================================================== -->
-
-  <footer
-    class="border-t
-           border-gray-200
-           bg-white"
-  >
-
-    <div
-      class="max-w-7xl
-             mx-auto
-             px-5
-             sm:px-6
-             py-10"
-    >
-
-      <div
-        class="flex
-               flex-col
-               md:flex-row
-               items-center
-               justify-between
-               gap-6"
-      >
-
-
-        <div
-          class="text-center
-                 md:text-left"
-        >
-
-          <div class="font-extrabold text-lg">
-            Syed Faiz Geo
-          </div>
-
-          <p class="text-sm text-gray-500 mt-1">
-            Independent journalism. No newsroom. No corporate backing.
-          </p>
-
-        </div>
-
-
-        <div
-          class="flex
-                 items-center
-                 gap-5"
-        >
-
-          <a
-            href="https://www.threads.com/@syedfaiz.geo"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-500 hover:text-black transition"
-            aria-label="Threads"
-          >
-            <i class="fa-brands fa-threads text-xl"></i>
-          </a>
-
-
-          <a
-            href="https://www.instagram.com/syedfaiz.geo/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-500 hover:text-pink-600 transition"
-            aria-label="Instagram"
-          >
-            <i class="fa-brands fa-instagram text-xl"></i>
-          </a>
-
-
-          <a
-            href="https://x.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-gray-500 hover:text-black transition"
-            aria-label="X"
-          >
-            <i class="fa-brands fa-x-twitter text-xl"></i>
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <div
-        class="border-t
-               border-gray-100
-               mt-8
-               pt-6
-               text-center
-               text-sm
-               text-gray-400"
-      >
-
-        © 2026 Syed Faiz Geo. All rights reserved.
-
-      </div>
-
-    </div>
-
+  <!-- FOOTER -->
+  <footer style="
+    border-top:1px solid #e5e5e5;
+    background:white;
+    text-align:center;
+    padding:28px 20px;
+    color:#777;
+    font-size:13px;
+  ">
+    © 2026 Syed Faiz Geo. Independent Journalism.
   </footer>
 
 
-
-  <!-- =====================================================
-       SLIDER JAVASCRIPT
-  ====================================================== -->
-
   <script>
-
-    const track = document.getElementById("sliderTrack");
-    const windowBox = document.getElementById("sliderWindow");
-
-    const slides = document.querySelectorAll(".slide");
-
-    const prevButton = document.getElementById("prevButton");
-    const nextButton = document.getElementById("nextButton");
-
-    const dotsContainer = document.getElementById("sliderDots");
-
-    const counter = document.getElementById("slideCounter");
 
     let currentSlide = 0;
 
-    const totalSlides = slides.length;
+    const totalSlides = 5;
+
+    const slides = document.getElementById("slides");
+
+    const counter = document.getElementById("counter");
+
+    const dots = document.querySelectorAll(".dot");
 
     let autoSlide;
 
-    let progressInterval;
 
-    let progress = 0;
+    function showSlide(index) {
 
-    const slideDuration = 6000;
-
-    let touchStartX = 0;
-
-    let touchEndX = 0;
-
-
-    /* =========================================
-       CREATE DOTS
-    ========================================= */
-
-    slides.forEach((slide, index) => {
-
-      const dot = document.createElement("button");
-
-      dot.className = "slider-dot";
-
-      dot.setAttribute(
-        "aria-label",
-        "Go to post " + (index + 1)
-      );
-
-      dot.type = "button";
-
-      dot.addEventListener("click", () => {
-
-        goToSlide(index);
-
-        restartAutoSlide();
-
-      });
-
-      dotsContainer.appendChild(dot);
-
-    });
-
-
-    const dots = document.querySelectorAll(".slider-dot");
-
-
-    /* =========================================
-       UPDATE SLIDER
-    ========================================= */
-
-    function updateSlider() {
-
-      track.style.transform =
-        "translateX(-" + (currentSlide * 100) + "%)";
-
-
-      counter.textContent =
-        String(currentSlide + 1).padStart(2, "0")
-        + " / "
-        + String(totalSlides).padStart(2, "0");
-
-
-      dots.forEach((dot, index) => {
-
-        dot.classList.toggle(
-          "active",
-          index === currentSlide
-        );
-
-      });
-
-    }
-
-
-    /* =========================================
-       GO TO SLIDE
-    ========================================= */
-
-    function goToSlide(index) {
+      if (index >= totalSlides) {
+        index = 0;
+      }
 
       if (index < 0) {
-        currentSlide = totalSlides - 1;
+        index = totalSlides - 1;
       }
 
-      else if (index >= totalSlides) {
-        currentSlide = 0;
-      }
+      currentSlide = index;
 
-      else {
-        currentSlide = index;
-      }
+      slides.style.transform =
+        "translateX(-" + (currentSlide * 100) + "%)";
 
-      updateSlider();
+      counter.textContent =
+        String(currentSlide + 1).padStart(2, "0") + " / 05";
 
-      resetProgress();
+
+      dots.forEach(function(dot, i) {
+
+        if (i === currentSlide) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+
+      });
 
     }
 
-
-    /* =========================================
-       NEXT
-    ========================================= */
 
     function nextSlide() {
-
-      goToSlide(currentSlide + 1);
-
+      showSlide(currentSlide + 1);
     }
 
-
-    /* =========================================
-       PREVIOUS
-    ========================================= */
 
     function previousSlide() {
-
-      goToSlide(currentSlide - 1);
-
+      showSlide(currentSlide - 1);
     }
 
 
-    /* =========================================
-       BUTTONS
-    ========================================= */
+    function goToSlide(index) {
+      showSlide(index);
+      restartAutoSlide();
+    }
 
-    nextButton.addEventListener(
-      "click",
-      () => {
-
-        nextSlide();
-
-        restartAutoSlide();
-
-      }
-    );
-
-
-    prevButton.addEventListener(
-      "click",
-      () => {
-
-        previousSlide();
-
-        restartAutoSlide();
-
-      }
-    );
-
-
-    /* =========================================
-       AUTOMATIC SLIDE
-    ========================================= */
 
     function startAutoSlide() {
 
-      clearInterval(autoSlide);
-
-      autoSlide = setInterval(() => {
-
+      autoSlide = setInterval(function() {
         nextSlide();
-
-      }, slideDuration);
+      }, 6000);
 
     }
 
 
     function restartAutoSlide() {
 
+      clearInterval(autoSlide);
+
       startAutoSlide();
 
     }
 
 
-    /* =========================================
-       PROGRESS BAR
-    ========================================= */
+    /* PAUSE ON DESKTOP HOVER */
 
-    function resetProgress() {
+    const slider = document.querySelector(".slider-box");
 
-      progress = 0;
-
-      document
-        .querySelectorAll(".progress-bar")
-        .forEach((bar) => {
-
-          bar.style.width = "0%";
-
-        });
-
-    }
+    slider.addEventListener("mouseenter", function() {
+      clearInterval(autoSlide);
+    });
 
 
-    function updateProgress() {
-
-      progress += 100 / (slideDuration / 100);
-
-      const bars =
-        document.querySelectorAll(".progress-bar");
-
-      if (bars[currentSlide]) {
-
-        bars[currentSlide].style.width =
-          Math.min(progress, 100) + "%";
-
-      }
-
-    }
+    slider.addEventListener("mouseleave", function() {
+      startAutoSlide();
+    });
 
 
-    clearInterval(progressInterval);
+    /* MOBILE SWIPE */
 
-    progressInterval = setInterval(
-      updateProgress,
-      100
-    );
+    let touchStartX = 0;
 
-
-    /* =========================================
-       PAUSE ON HOVER
-    ========================================= */
-
-    windowBox.addEventListener(
-      "mouseenter",
-      () => {
-
-        clearInterval(autoSlide);
-
-      }
-    );
+    let touchEndX = 0;
 
 
-    windowBox.addEventListener(
-      "mouseleave",
-      () => {
+    slider.addEventListener("touchstart", function(event) {
 
-        startAutoSlide();
+      touchStartX = event.changedTouches[0].screenX;
 
-      }
-    );
+      clearInterval(autoSlide);
 
-
-    /* =========================================
-       TOUCH / SWIPE
-    ========================================= */
-
-    windowBox.addEventListener(
-      "touchstart",
-      (event) => {
-
-        touchStartX =
-          event.changedTouches[0].screenX;
-
-        clearInterval(autoSlide);
-
-      },
-      { passive: true }
-    );
+    }, { passive:true });
 
 
-    windowBox.addEventListener(
-      "touchend",
-      (event) => {
+    slider.addEventListener("touchend", function(event) {
 
-        touchEndX =
-          event.changedTouches[0].screenX;
-
-        handleSwipe();
-
-        startAutoSlide();
-
-      },
-      { passive: true }
-    );
+      touchEndX = event.changedTouches[0].screenX;
 
 
-    function handleSwipe() {
-
-      const distance =
-        touchEndX - touchStartX;
-
-
-      if (Math.abs(distance) < 50) {
-        return;
-      }
-
-
-      if (distance < 0) {
-
+      if (touchStartX - touchEndX > 50) {
         nextSlide();
-
       }
 
-      else {
 
+      if (touchEndX - touchStartX > 50) {
         previousSlide();
-
       }
 
-    }
+
+      startAutoSlide();
+
+    }, { passive:true });
 
 
-    /* =========================================
-       KEYBOARD
-    ========================================= */
+    /* KEYBOARD */
 
-    document.addEventListener(
-      "keydown",
-      (event) => {
+    document.addEventListener("keydown", function(event) {
 
-        if (event.key === "ArrowRight") {
-
-          nextSlide();
-
-          restartAutoSlide();
-
-        }
-
-        if (event.key === "ArrowLeft") {
-
-          previousSlide();
-
-          restartAutoSlide();
-
-        }
-
+      if (event.key === "ArrowRight") {
+        nextSlide();
+        restartAutoSlide();
       }
-    );
+
+      if (event.key === "ArrowLeft") {
+        previousSlide();
+        restartAutoSlide();
+      }
+
+    });
 
 
-    /* =========================================
-       INITIALIZE
-    ========================================= */
+    /* START */
 
-    updateSlider();
+    showSlide(0);
 
     startAutoSlide();
 
   </script>
-
 
 </body>
 </html>
