@@ -1,656 +1,1099 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Syed Faiz Afroz | Independent Journalist, Political Commentator & Author</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="Official website of Syed Faiz Afroz, independent journalist, political commentator and author covering geopolitics, international affairs and global politics.">
+<title>Geopolitical Commentary | Syed Faiz Geo</title>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+*{
+box-sizing:border-box;
+}
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+html{
+scroll-behavior:smooth;
+}
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#f0f4f8',
-                            100: '#d9e2ec',
-                            800: '#243b53',
-                            900: '#102a43',
-                        }
-                    }
-                }
-            }
-        }
-    </script>
+body{
+margin:0;
+background:#f5f5f3;
+color:#111;
+font-family:Arial,Helvetica,sans-serif;
+overflow-x:hidden;
+}
 
-    <style>
-        .hero-pattern {
-            background-color: #102a43;
-            background-image: radial-gradient(#243b53 1px, transparent 1px);
-            background-size: 24px 24px;
-        }
+a{
+text-decoration:none;
+color:inherit;
+}
 
-        .social-btn {
-            transition: all 0.3s ease;
-        }
 
-        .social-btn:hover {
-            transform: translateY(-2px);
-        }
+/* ================= ANIMATION ================= */
 
-        .profile-photo {
-            object-position: top center;
-        }
+body::before{
+content:"";
+position:fixed;
+width:550px;
+height:550px;
+right:-220px;
+top:-200px;
+border-radius:50%;
+background:linear-gradient(
+135deg,
+rgba(30,80,255,.10),
+rgba(150,30,255,.08),
+rgba(255,50,80,.06)
+);
+filter:blur(80px);
+animation:colorMove 12s ease-in-out infinite alternate;
+pointer-events:none;
+z-index:-1;
+}
 
-        /* Book covers */
-        .book-cover-wrapper {
-            width: 100%;
-            max-width: 240px;
-            height: 340px;
-            margin: 0 auto;
-            overflow: hidden;
-            border-radius: 8px;
-            background: #e5e7eb;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
-        }
+@keyframes colorMove{
 
-        .book-cover {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+0%{
+transform:translate(0,0) scale(1);
+}
 
-        /* Crops the combined front/back image of The Final Seven Minutes */
-        .final-seven-cover .book-cover {
-            transform: scale(1.65);
-            transform-origin: center top;
-            object-position: center top;
-        }
+50%{
+transform:translate(-80px,80px) scale(1.2);
+}
 
-        .book-card {
-            transition: all 0.3s ease;
-        }
+100%{
+transform:translate(30px,140px) scale(1);
+}
 
-        .book-card:hover {
-            transform: translateY(-5px);
-        }
-    </style>
+}
+
+
+/* ================= HEADER ================= */
+
+.header{
+background:rgba(255,255,255,.88);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border-bottom:1px solid #e5e5e5;
+position:sticky;
+top:0;
+z-index:100;
+}
+
+.header-inner{
+max-width:1180px;
+height:78px;
+margin:auto;
+padding:0 24px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.logo{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#111;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:13px;
+font-weight:900;
+animation:logoPulse 5s infinite;
+}
+
+@keyframes logoPulse{
+
+0%,100%{
+box-shadow:0 0 0 0 rgba(40,70,255,0);
+}
+
+50%{
+box-shadow:0 0 0 7px rgba(40,70,255,.08);
+}
+
+}
+
+.brand-name{
+font-size:18px;
+font-weight:800;
+}
+
+.brand-sub{
+font-size:10px;
+color:#777;
+margin-top:4px;
+}
+
+.nav{
+display:flex;
+gap:26px;
+font-size:13px;
+font-weight:700;
+}
+
+.nav a:hover{
+color:#666;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+max-width:1000px;
+margin:auto;
+padding:75px 22px 40px;
+text-align:center;
+}
+
+.kicker{
+font-size:11px;
+font-weight:800;
+letter-spacing:3px;
+color:#777;
+margin-bottom:17px;
+}
+
+.hero h1{
+font-family:Georgia,serif;
+font-size:clamp(40px,6vw,65px);
+line-height:1.05;
+letter-spacing:-2px;
+margin:0;
+}
+
+.hero h1 span{
+background:linear-gradient(
+90deg,
+#111,
+#254cff,
+#8b32ff,
+#111
+);
+background-size:300% 100%;
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+animation:gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0%;
+}
+
+50%{
+background-position:100%;
+}
+
+100%{
+background-position:0%;
+}
+
+}
+
+.hero p{
+font-size:16px;
+line-height:1.6;
+color:#666;
+margin:20px auto 0;
+max-width:650px;
+}
+
+
+/* ================= SLIDER ================= */
+
+.wrapper{
+max-width:1000px;
+margin:auto;
+padding:10px 20px 80px;
+}
+
+.slider{
+position:relative;
+overflow:hidden;
+background:white;
+border:1px solid #e5e5e5;
+border-radius:23px;
+box-shadow:0 20px 55px rgba(0,0,0,.09);
+}
+
+.slides{
+display:flex;
+transition:transform .65s cubic-bezier(.22,.61,.36,1);
+}
+
+.slide{
+min-width:100%;
+}
+
+.image-area{
+position:relative;
+background:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.post-image{
+width:100%;
+height:auto;
+max-height:720px;
+object-fit:contain;
+display:block;
+}
+
+.label{
+position:absolute;
+top:18px;
+left:18px;
+background:rgba(0,0,0,.8);
+color:white;
+padding:8px 11px;
+border-radius:30px;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.5px;
+z-index:2;
+}
+
+
+/* ================= INFO ================= */
+
+.info{
+padding:18px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+}
+
+.date{
+font-size:13px;
+color:#777;
+display:flex;
+align-items:center;
+gap:7px;
+}
+
+.clock{
+font-size:17px;
+}
+
+.original{
+background:#111;
+color:white;
+padding:12px 20px;
+border-radius:30px;
+font-size:13px;
+font-weight:700;
+transition:.25s;
+white-space:nowrap;
+}
+
+.original:hover{
+background:#333;
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+
+/* ================= ARROWS ================= */
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:44px;
+height:44px;
+border:1px solid #ddd;
+border-radius:50%;
+background:rgba(255,255,255,.96);
+font-size:20px;
+cursor:pointer;
+z-index:5;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+transition:.25s;
+}
+
+.arrow:hover{
+background:#111;
+color:white;
+border-color:#111;
+}
+
+.prev{
+left:16px;
+}
+
+.next{
+right:16px;
+}
+
+
+/* ================= COUNTER ================= */
+
+.slider-footer{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:18px;
+margin-top:22px;
+}
+
+.counter{
+font-size:12px;
+font-weight:800;
+letter-spacing:1px;
+}
+
+.dots{
+display:flex;
+gap:7px;
+}
+
+.dot{
+width:8px;
+height:8px;
+padding:0;
+border:0;
+border-radius:50%;
+background:#d1d1d1;
+cursor:pointer;
+transition:.25s;
+}
+
+.dot.active{
+background:#111;
+width:22px;
+border-radius:10px;
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress{
+height:2px;
+background:#ddd;
+margin-top:18px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+background:#111;
+width:20%;
+transition:width .6s ease;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer{
+border-top:1px solid #e5e5e5;
+background:white;
+text-align:center;
+padding:32px 20px;
+font-size:11px;
+color:#777;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+.header-inner{
+height:70px;
+padding:0 17px;
+}
+
+.nav{
+gap:14px;
+}
+
+.nav a{
+display:none;
+}
+
+.nav a:last-child{
+display:block;
+}
+
+.brand-name{
+font-size:16px;
+}
+
+.hero{
+padding:55px 18px 30px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.wrapper{
+padding:5px 12px 60px;
+}
+
+.slider{
+border-radius:17px;
+}
+
+.post-image{
+max-height:600px;
+}
+
+.info{
+padding:15px;
+}
+
+.original{
+padding:10px 15px;
+font-size:12px;
+}
+
+.arrow{
+width:38px;
+height:38px;
+font-size:17px;
+}
+
+.prev{
+left:8px;
+}
+
+.next{
+right:8px;
+}
+
+.label{
+top:12px;
+left:12px;
+}
+
+}
+
+
+/* ================= REDUCED MOTION ================= */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+animation:none!important;
+transition:none!important;
+}
+
+html{
+scroll-behavior:auto;
+}
+
+}
+
+</style>
+
 </head>
 
-<body class="font-sans text-brand-900 bg-brand-50 antialiased selection:bg-brand-800 selection:text-white flex flex-col min-h-screen">
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+<body>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="flex justify-between items-center h-20">
+<!-- HEADER -->
 
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html" class="font-serif text-2xl font-bold tracking-tight text-brand-900">
-                        SFA.
-                    </a>
-                </div>
+<header class="header">
 
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex space-x-8">
+<div class="header-inner">
 
-                    <a href="index.html"
-                       class="text-brand-900 font-semibold border-b-2 border-brand-900 pb-1">
-                        Home
-                    </a>
+<a href="index.html" class="brand">
 
-                    <a href="#about"
-                       class="text-gray-600 hover:text-brand-900 font-medium transition-colors">
-                        About
-                    </a>
+<div class="logo">
+SFA.
+</div>
 
-                    <a href="#books"
-                       class="text-gray-600 hover:text-brand-900 font-medium transition-colors">
-                        Books
-                    </a>
+<div>
 
-                    <a href="posts.html"
-                       class="text-gray-600 hover:text-brand-900 font-medium transition-colors">
-                        Commentary & Threads
-                    </a>
+<div class="brand-name">
+Syed Faiz Geo
+</div>
 
-                    <a href="#newsletter"
-                       class="text-gray-600 hover:text-brand-900 font-medium transition-colors">
-                        Newsletter
-                    </a>
+<div class="brand-sub">
+Independent Journalism
+</div>
 
-                    <a href="#contact"
-                       class="text-gray-600 hover:text-brand-900 font-medium transition-colors">
-                        Contact
-                    </a>
+</div>
 
-                </div>
+</a>
 
-                <!-- Mobile menu button -->
-                <div class="md:hidden flex items-center">
 
-                    <button id="mobile-menu-btn"
-                            class="text-gray-600 hover:text-brand-900 focus:outline-none"
-                            aria-label="Toggle Navigation Menu">
+<nav class="nav">
 
-                        <i class="fa-solid fa-bars text-2xl"></i>
+<a href="index.html">
+Home
+</a>
 
-                    </button>
+<a href="index.html#about">
+About
+</a>
 
-                </div>
+<a href="index.html#books">
+Books
+</a>
 
-            </div>
+</nav>
 
-        </div>
+</div>
 
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+</header>
 
-            <div class="px-3 pt-2 pb-4 space-y-2 shadow-lg">
 
-                <a href="index.html"
-                   class="block px-3 py-2 text-base font-semibold text-brand-900 bg-gray-50 rounded-md">
-                    Home
-                </a>
 
-                <a href="#about"
-                   class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">
-                    About
-                </a>
+<!-- HERO -->
 
-                <a href="#books"
-                   class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">
-                    Books
-                </a>
+<section class="hero">
 
-                <a href="posts.html"
-                   class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">
-                    Commentary & Threads
-                </a>
+<div class="kicker">
+MY LATEST &amp; POPULAR COMMENTARY
+</div>
 
-                <a href="#newsletter"
-                   class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">
-                    Newsletter
-                </a>
+<h1>
+Geopolitical <span>Commentary</span>
+</h1>
 
-                <a href="#contact"
-                   class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 hover:bg-gray-50 rounded-md">
-                    Contact
-                </a>
+<p>
+What I see. What I question. What the headlines leave behind.
+</p>
 
-            </div>
+</section>
 
-        </div>
 
-    </nav>
 
+<!-- SLIDER -->
 
-    <!-- Hero Section -->
-    <section id="home"
-             class="relative pt-32 pb-20 lg:pt-44 lg:pb-28 overflow-hidden hero-pattern text-white">
+<main class="wrapper">
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+<div class="slider">
 
-            <div class="max-w-3xl">
+<div class="slides" id="slides">
 
-                <p class="text-brand-100 font-medium tracking-wider uppercase mb-4 text-sm md:text-base">
-                    Independent Journalism
-                </p>
 
-                <h1 class="text-4xl sm:text-5xl md:text-7xl font-serif font-bold leading-tight mb-6">
-                    Syed Faiz Afroz
-                </h1>
+<!-- POST 1 -->
 
-                <p class="text-lg sm:text-xl md:text-2xl text-gray-300 font-light leading-relaxed mb-10 max-w-2xl">
+<article class="slide">
 
-                    <span class="text-white font-semibold">
-                        Independent Journalist, Political Commentator & Author.
-                    </span>
+<div class="image-area">
 
-                    Unraveling complex global narratives, international relations,
-                    and the policies shaping our world.
+<span class="label">
+COMMENTARY
+</span>
 
-                </p>
+<img
+src="images/posts/anne-frank-palestine.jpg"
+class="post-image"
+alt="Anne Frank Palestine commentary"
+>
 
-                <div class="flex flex-wrap gap-4">
+</div>
 
-                    <a href="posts.html"
-                       class="bg-white text-brand-900 px-8 py-3 rounded-sm font-semibold hover:bg-gray-100 transition-colors shadow-lg">
-                        Read Articles & Threads &rarr;
-                    </a>
+<div class="info">
 
-                    <a href="#newsletter"
-                       class="border border-white/30 hover:border-white text-white px-8 py-3 rounded-sm font-semibold transition-colors backdrop-blur-sm">
-                        Subscribe to Newsletter
-                    </a>
+<div class="date">
 
-                </div>
+<span class="clock">◷</span>
 
-            </div>
+<span>07/11</span>
 
-        </div>
+</div>
 
-        <!-- Decorative globe -->
-        <div class="absolute right-0 bottom-0 opacity-10 pointer-events-none transform translate-x-1/4 translate-y-1/4 hidden lg:block">
+<a
+href="https://www.threads.com/share/BAaVJNiwvM/"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
 
-            <i class="fa-solid fa-globe text-[400px]"></i>
+</div>
 
-        </div>
+</article>
 
-    </section>
 
 
-    <!-- About Section -->
-    <section id="about" class="py-20 bg-white relative">
+<!-- POST 2 -->
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<article class="slide">
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+<div class="image-area">
 
-                <!-- Image -->
-                <div class="lg:col-span-5 relative group">
+<span class="label">
+COMMENTARY
+</span>
 
-                    <div class="absolute inset-0 bg-brand-900 translate-x-3 translate-y-3 rounded-sm transition-transform group-hover:translate-x-5 group-hover:translate-y-5"></div>
+<img
+src="images/posts/children-fifa.jpg"
+class="post-image"
+alt="Children FIFA World Cup commentary"
+>
 
-                    <img
-                        src="https://raw.githubusercontent.com/faizabdii123/Syed-faiz-geo/main/705451064_18596133991062450_398762657180937418_n.jpg"
-                        alt="Syed Faiz Afroz"
-                        class="profile-photo relative z-10 w-full h-[460px] object-cover rounded-sm shadow-xl"
-                    >
+</div>
 
-                    <div class="absolute bottom-6 left-6 z-20 bg-white p-4 shadow-lg rounded-sm max-w-[90%]">
+<div class="info">
 
-                        <p class="font-serif font-bold text-lg text-brand-900">
-                            Syed Faiz Afroz
-                        </p>
+<div class="date">
 
-                        <p class="text-xs text-gray-500 uppercase tracking-wide font-semibold mt-0.5">
-                            Independent Journalist & Author
-                        </p>
+<span class="clock">◷</span>
 
-                    </div>
+<span>07/21</span>
 
-                </div>
+</div>
 
+<a
+href="https://www.threads.com/share/BAagAnnjlK/"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
 
-                <!-- About Text -->
-                <div class="lg:col-span-7">
+</div>
 
-                    <h2 class="text-3xl sm:text-4xl font-serif font-bold mb-6 text-brand-900">
-                        About Syed Faiz Afroz
-                    </h2>
+</article>
 
-                    <div class="prose prose-lg text-gray-600 mb-8 space-y-4 text-sm sm:text-base leading-relaxed">
 
-                        <p>
-                            Syed Faiz Afroz is an independent journalist, political commentator,
-                            and author whose work focuses on geopolitics, international affairs,
-                            and the stories shaping today's world.
-                        </p>
 
-                        <p>
-                            He believes journalism is at its best when it asks difficult questions,
-                            challenges those in power, and puts facts before narratives. His reporting
-                            and analysis are driven by a commitment to helping readers understand
-                            complex global issues with clarity and context.
-                        </p>
+<!-- POST 3 -->
 
-                        <p>
-                            As an author, Syed Faiz Afroz explores ideas, politics, society,
-                            and the questions that shape how we understand the world.
-                            He is the author of
-                            <em>The Final Seven Minutes</em> and
-                            <em>The Art of Not Believing</em>.
-                        </p>
+<article class="slide">
 
-                    </div>
+<div class="image-area">
 
+<span class="label">
+COMMENTARY
+</span>
 
-                    <!-- Social Links -->
-                    <div class="bg-brand-50 p-6 sm:p-8 rounded-xl border border-brand-100">
+<img
+src="images/posts/ms-rachel.jpg"
+class="post-image"
+alt="Ms Rachel commentary"
+>
 
-                        <h3 class="text-base sm:text-lg font-semibold text-brand-900 mb-2">
-                            Follow the Live Conversation
-                        </h3>
+</div>
 
-                        <p class="text-gray-600 mb-5 text-xs sm:text-sm">
-                            Join Syed for real-time geopolitical commentary,
-                            discussions, and updates across platforms:
-                        </p>
+<div class="info">
 
-                        <div class="flex flex-col sm:flex-row flex-wrap gap-3">
+<div class="date">
 
-                            <!-- Threads -->
-                            <a href="https://www.threads.com/@syedfaiz.geo"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               class="social-btn flex items-center justify-center gap-2.5 bg-[#101010] text-white px-5 py-2.5 rounded-lg hover:bg-gray-800 font-medium text-sm border border-gray-800">
+<span class="clock">◷</span>
 
-                                <i class="fa-brands fa-threads text-lg"></i>
+<span>08/01</span>
 
-                                <span>
-                                    Threads (@syedfaiz.geo)
-                                </span>
+</div>
 
-                            </a>
+<a
+href="https://www.threads.com/share/BAUc6mkKWU/"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
 
+</div>
 
-                            <!-- X -->
-                            <a href="https://x.com/"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               class="social-btn flex items-center justify-center gap-2.5 bg-black text-white px-5 py-2.5 rounded-lg hover:bg-gray-800 font-medium text-sm">
+</article>
 
-                                <i class="fa-brands fa-x-twitter text-lg"></i>
 
-                                <span>
-                                    X (Twitter)
-                                </span>
 
-                            </a>
+<!-- POST 4 -->
 
+<article class="slide">
 
-                            <!-- Instagram -->
-                            <a href="https://www.instagram.com/syedfaiz.geo/"
-                               target="_blank"
-                               rel="noopener noreferrer"
-                               class="social-btn flex items-center justify-center gap-2.5 bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] text-white px-5 py-2.5 rounded-lg hover:opacity-90 font-medium text-sm">
+<div class="image-area">
 
-                                <i class="fa-brands fa-instagram text-lg"></i>
+<span class="label">
+COMMENTARY
+</span>
 
-                                <span>
-                                    Instagram
-                                </span>
+<img
+src="images/posts/nyc-subway-heat.jpg"
+class="post-image"
+alt="NYC subway heat commentary"
+>
 
-                            </a>
+</div>
 
-                        </div>
+<div class="info">
 
-                    </div>
+<div class="date">
 
-                </div>
+<span class="clock">◷</span>
 
-            </div>
+<span>08/11</span>
 
-        </div>
+</div>
 
-    </section>
+<a
+href="https://www.threads.com/share/BAcsiBV8N0/"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
 
+</div>
 
-    <!-- BOOKS SECTION -->
-    <section id="books" class="py-20 bg-brand-50 border-t border-brand-100">
+</article>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-            <div class="text-center mb-12">
 
-                <p class="text-brand-800 font-semibold tracking-wider uppercase text-sm mb-3">
-                    Books
-                </p>
+<!-- POST 5 -->
 
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-900 mb-4">
-                    Books by Syed Faiz Afroz
-                </h2>
+<article class="slide">
 
-                <p class="text-gray-600 max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                    Alongside his journalism and commentary, Syed Faiz Afroz is the author
-                    of two books exploring ideas, belief, society, and the questions that
-                    shape how we understand the world.
-                </p>
+<div class="image-area">
 
-            </div>
+<span class="label">
+COMMENTARY
+</span>
 
+<img
+src="images/posts/clarence-thomas.jpg"
+class="post-image"
+alt="Clarence Thomas commentary"
+>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+</div>
 
+<div class="info">
 
-                <!-- BOOK 1 -->
-                <article class="book-card bg-white rounded-xl border border-brand-100 p-6 text-center shadow-sm">
+<div class="date">
 
-                    <div class="book-cover-wrapper final-seven-cover">
+<span class="clock">◷</span>
 
-                        <img
-                            src="images/books/final-seven-minutes.jpg"
-                            alt="The Final Seven Minutes by Faiz Afroz"
-                            class="book-cover"
-                        >
+<span>08/25</span>
 
-                    </div>
+</div>
 
-                    <h3 class="font-serif text-2xl font-bold text-brand-900 mt-6 mb-2">
-                        The Final Seven Minutes
-                    </h3>
+<a
+href="https://substack.com/@syedfaizgeo/note/c-322616042?r=8kg1ua"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
 
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        <em>The Final Seven Minutes</em> by Faiz Afroz.
-                    </p>
+</div>
 
-                </article>
+</article>
 
 
-                <!-- BOOK 2 -->
-                <article class="book-card bg-white rounded-xl border border-brand-100 p-6 text-center shadow-sm">
+</div>
 
-                    <div class="book-cover-wrapper">
 
-                        <img
-                            src="images/books/art-of-not-believing.webp"
-                            alt="The Art of Not Believing by Faiz Afroz"
-                            class="book-cover"
-                        >
+<button
+class="arrow prev"
+onclick="previousSlide()"
+aria-label="Previous commentary"
+>
+←
+</button>
 
-                    </div>
 
-                    <h3 class="font-serif text-2xl font-bold text-brand-900 mt-6 mb-2">
-                        The Art of Not Believing
-                    </h3>
+<button
+class="arrow next"
+onclick="nextSlide()"
+aria-label="Next commentary"
+>
+→
+</button>
 
-                    <p class="text-gray-600 text-sm leading-relaxed">
-                        <em>The Art of Not Believing</em> by Faiz Afroz.
-                    </p>
 
-                </article>
+</div>
 
-            </div>
 
-        </div>
 
-    </section>
+<div class="slider-footer">
 
+<span class="counter" id="counter">
+01 / 05
+</span>
 
-    <!-- Newsletter -->
-    <section id="newsletter" class="py-20 bg-brand-50 border-t border-brand-100">
+<div class="dots">
 
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<button class="dot active" onclick="goToSlide(0)"></button>
 
-            <div class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-brand-100 text-brand-900 mb-4">
+<button class="dot" onclick="goToSlide(1)"></button>
 
-                <i class="fa-regular fa-envelope text-xl"></i>
+<button class="dot" onclick="goToSlide(2)"></button>
 
-            </div>
+<button class="dot" onclick="goToSlide(3)"></button>
 
-            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-900 mb-3">
-                Subscribe to the Briefing
-            </h2>
+<button class="dot" onclick="goToSlide(4)"></button>
 
-            <p class="text-gray-600 text-base max-w-xl mx-auto mb-8">
-                Receive independent geopolitical dispatches, commentary,
-                and policy analysis directly in your inbox.
-            </p>
+</div>
 
+</div>
 
-            <div class="flex justify-center items-center w-full overflow-hidden">
 
-                <iframe
-                    src="https://syedfaizgeo.substack.com/embed"
-                    class="w-full max-w-[480px] h-[320px] rounded-xl shadow-md border border-gray-200 bg-white"
-                    frameborder="0"
-                    scrolling="no">
-                </iframe>
+<div class="progress">
 
-            </div>
+<div
+class="progress-bar"
+id="progressBar"
+></div>
 
-        </div>
+</div>
 
-    </section>
+</main>
 
 
-    <!-- Commentary Section -->
-    <section class="py-16 bg-white border-t border-gray-100">
 
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+<footer class="footer">
 
-            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-900">
-                Looking for In-Depth Articles & Threads?
-            </h2>
+<strong>Syed Faiz Geo</strong>
 
-            <p class="text-gray-600 text-sm sm:text-base max-w-xl mx-auto">
-                Discover geopolitical breakdowns, statecraft analysis,
-                political commentary, and discussions.
-            </p>
+<br><br>
 
-            <div class="pt-2">
+Independent Journalism • Political Commentary • Books
 
-                <a href="posts.html"
-                   class="inline-flex items-center gap-2 bg-brand-900 text-white px-7 py-3 rounded-sm font-semibold hover:bg-brand-800 transition shadow">
+<br><br>
 
-                    <span>
-                        Browse All Commentary & Posts
-                    </span>
+© 2026 Syed Faiz Geo. All rights reserved.
 
-                    <i class="fa-solid fa-arrow-right"></i>
+</footer>
 
-                </a>
 
-            </div>
 
-        </div>
+<script>
 
-    </section>
+const slides =
+document.getElementById("slides");
 
+const counter =
+document.getElementById("counter");
 
-    <!-- Contact -->
-    <section id="contact" class="py-16 bg-brand-50 border-t border-brand-100">
+const dots =
+document.querySelectorAll(".dot");
 
-        <div class="max-w-3xl mx-auto px-4 text-center">
+const progressBar =
+document.getElementById("progressBar");
 
-            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-brand-900 mb-3">
-                Get in Touch
-            </h2>
+const slider =
+document.querySelector(".slider");
 
-            <p class="text-gray-600 text-sm sm:text-base mb-6">
-                For media inquiries, interviews, writing, or speaking engagements.
-            </p>
+const total = 5;
 
-            <a href="mailto:faizafroz9451@gmail.com"
-               class="inline-block bg-brand-900 text-white px-8 py-3 rounded-sm font-semibold hover:bg-brand-800 transition shadow">
+let current = 0;
 
-                Email: faizafroz9451@gmail.com
+let timer;
 
-            </a>
 
-        </div>
 
-    </section>
+function showSlide(index){
 
+if(index >= total){
+index = 0;
+}
 
-    <!-- Footer -->
-    <footer class="bg-brand-900 text-white py-10 text-center mt-auto border-t border-brand-800">
+if(index < 0){
+index = total - 1;
+}
 
-        <div class="max-w-7xl mx-auto px-4">
+current = index;
 
-            <h2 class="font-serif text-2xl font-bold mb-4">
-                Syed Faiz Afroz
-            </h2>
+slides.style.transform =
+"translateX(-" +
+(current * 100) +
+"%)";
 
-            <div class="flex justify-center space-x-6 mb-6">
+counter.textContent =
+String(current + 1).padStart(2,"0") +
+" / 05";
 
-                <a href="https://x.com/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="text-gray-400 hover:text-white transition">
 
-                    <i class="fa-brands fa-x-twitter text-xl"></i>
+dots.forEach((dot,i)=>{
 
-                </a>
+dot.classList.toggle(
+"active",
+i === current
+);
 
-                <a href="https://www.threads.com/@syedfaiz.geo"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="text-gray-400 hover:text-white transition">
+});
 
-                    <i class="fa-brands fa-threads text-xl"></i>
 
-                </a>
+progressBar.style.width =
+((current + 1) / total * 100) +
+"%";
 
-                <a href="https://www.instagram.com/syedfaiz.geo/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   class="text-gray-400 hover:text-white transition">
+}
 
-                    <i class="fa-brands fa-instagram text-xl"></i>
 
-                </a>
 
-            </div>
+function nextSlide(){
 
-            <p class="text-gray-400 text-xs">
+showSlide(current + 1);
 
-                &copy;
+}
 
-                <span id="year"></span>
 
-                Syed Faiz Afroz. All rights reserved.
 
-                &bull;
+function previousSlide(){
 
-                Independent Journalist, Political Commentator & Author.
+showSlide(current - 1);
 
-            </p>
+}
 
-        </div>
 
-    </footer>
 
+function goToSlide(index){
 
-    <!-- Interactive Scripts -->
-    <script>
+showSlide(index);
 
-        document.getElementById('year').textContent =
-            new Date().getFullYear();
+restartTimer();
 
-        const menuBtn =
-            document.getElementById('mobile-menu-btn');
+}
 
-        const mobileMenu =
-            document.getElementById('mobile-menu');
 
-        menuBtn.addEventListener('click', () => {
 
-            mobileMenu.classList.toggle('hidden');
+function startTimer(){
 
-        });
+timer =
+setInterval(
+nextSlide,
+6000
+);
 
-    </script>
+}
+
+
+
+function restartTimer(){
+
+clearInterval(timer);
+
+startTimer();
+
+}
+
+
+/* HOVER PAUSE */
+
+slider.addEventListener(
+"mouseenter",
+()=>{
+clearInterval(timer);
+}
+);
+
+
+slider.addEventListener(
+"mouseleave",
+()=>{
+startTimer();
+}
+);
+
+
+/* TOUCH */
+
+let startX = 0;
+
+let endX = 0;
+
+
+slider.addEventListener(
+"touchstart",
+(e)=>{
+
+startX =
+e.changedTouches[0].screenX;
+
+clearInterval(timer);
+
+},
+{passive:true}
+);
+
+
+slider.addEventListener(
+"touchend",
+(e)=>{
+
+endX =
+e.changedTouches[0].screenX;
+
+
+if(startX - endX > 50){
+
+nextSlide();
+
+}
+
+
+if(endX - startX > 50){
+
+previousSlide();
+
+}
+
+
+startTimer();
+
+},
+{passive:true}
+);
+
+
+/* KEYBOARD */
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+if(e.key === "ArrowRight"){
+
+nextSlide();
+
+restartTimer();
+
+}
+
+if(e.key === "ArrowLeft"){
+
+previousSlide();
+
+restartTimer();
+
+}
+
+}
+);
+
+
+showSlide(0);
+
+startTimer();
+
+</script>
+
 
 </body>
 </html>
