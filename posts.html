@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commentary & Threads | Syed Faiz Afroz</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0f4f8',
+                            100: '#d9e2ec',
+                            800: '#243b53',
+                            900: '#102a43',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-sans text-brand-900 bg-brand-50 antialiased selection:bg-brand-800 selection:text-white flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="font-serif text-2xl font-bold tracking-tight text-brand-900">SFA.</a>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-brand-900 font-medium transition-colors">Home</a>
+                    <a href="index.html#about" class="text-gray-600 hover:text-brand-900 font-medium transition-colors">About</a>
+                    <!-- Active State for Posts Page -->
+                    <a href="posts.html" class="text-brand-900 font-semibold border-b-2 border-brand-900 pb-1">Commentary & Threads</a>
+                    <a href="index.html#contact" class="text-gray-600 hover:text-brand-900 font-medium transition-colors">Contact</a>
+                </div>
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-900 focus:outline-none" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-3 pt-2 pb-4 space-y-2 shadow-lg">
+                <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 rounded-md">Home</a>
+                <a href="index.html#about" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 rounded-md">About</a>
+                <a href="posts.html" class="block px-3 py-2 text-base font-semibold text-brand-900 bg-gray-50 rounded-md">Commentary & Threads</a>
+                <a href="index.html#contact" class="block px-3 py-2 text-base font-medium text-gray-700 hover:text-brand-900 rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
+    <header class="pt-32 pb-12 bg-brand-900 text-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <a href="index.html" class="text-xs text-brand-100 hover:underline inline-flex items-center gap-1.5 mb-4">
+                <i class="fa-solid fa-arrow-left"></i> Back to Homepage
+            </a>
+            <h1 class="text-3xl sm:text-5xl font-serif font-bold tracking-tight mb-3">
+                Commentary & Threads
+            </h1>
+            <p class="text-gray-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+                Geopolitical analysis, policy discussions, and live threads. Read full breakdowns or jump into the conversation directly.
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content: Articles & Discussion Feed -->
+    <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 flex-1 w-full space-y-8">
+        
+        <!-- Filter / Notice Bar -->
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200 pb-4 text-xs sm:text-sm text-gray-500">
+            <span>Showing recent publications & notes</span>
+            <div class="flex items-center gap-3">
+                <a href="https://www.threads.com/@syedfaiz.geo" target="_blank" rel="noopener noreferrer" class="text-brand-900 font-semibold hover:underline flex items-center gap-1">
+                    <i class="fa-brands fa-threads"></i> Follow @syedfaiz.geo
+                </a>
+                <span>&bull;</span>
+                <a href="https://syedfaizgeo.substack.com" target="_blank" rel="noopener noreferrer" class="text-brand-900 font-semibold hover:underline">
+                    Substack Archive &rarr;
+                </a>
+            </div>
+        </div>
+
+        <!-- POSTS CONTAINER (Add new articles right here) -->
+        <div class="space-y-6">
+
+            <!-- ARTICLE 1 -->
+            <article class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200/80 hover:shadow-md transition">
+                <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500 mb-3">
+                    <span class="font-semibold text-brand-800 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded">Middle East</span>
+                    <time datetime="2026-09-08">September 8, 2026</time>
+                </div>
+                <h2 class="text-2xl font-serif font-bold text-brand-900 mb-3 hover:text-brand-800">
+                    The Shifting Sands of Regional Alliances
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                    An in-depth look at how recent diplomatic agreements are reshaping the historical balance of power in the region, creating new economic corridors and re-evaluating strategic security doctrines.
+                </p>
+                <div class="flex flex-wrap items-center gap-3 pt-2">
+                    <a href="https://syedfaizgeo.substack.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-900 hover:bg-brand-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded shadow-sm transition">
+                        <span>Read on Substack</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                    <a href="https://www.threads.com/@syedfaiz.geo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-brand-900 text-xs sm:text-sm font-semibold px-4 py-2 rounded border border-gray-200 transition">
+                        <i class="fa-brands fa-threads"></i>
+                        <span>Discuss on Threads</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ARTICLE 2 -->
+            <article class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200/80 hover:shadow-md transition">
+                <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500 mb-3">
+                    <span class="font-semibold text-brand-800 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded">Global Economy</span>
+                    <time datetime="2026-09-02">September 2, 2026</time>
+                </div>
+                <h2 class="text-2xl font-serif font-bold text-brand-900 mb-3 hover:text-brand-800">
+                    Resource Diplomacy in the 21st Century
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                    How strategic rare earth elements, critical minerals, and evolving energy dependencies are becoming the primary levers in modern geopolitical negotiations and trade alignments.
+                </p>
+                <div class="flex flex-wrap items-center gap-3 pt-2">
+                    <a href="https://syedfaizgeo.substack.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-900 hover:bg-brand-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded shadow-sm transition">
+                        <span>Read on Substack</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                    <a href="https://www.threads.com/@syedfaiz.geo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-brand-900 text-xs sm:text-sm font-semibold px-4 py-2 rounded border border-gray-200 transition">
+                        <i class="fa-brands fa-threads"></i>
+                        <span>Discuss on Threads</span>
+                    </a>
+                </div>
+            </article>
+
+            <!-- ARTICLE 3 -->
+            <article class="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-gray-200/80 hover:shadow-md transition">
+                <div class="flex flex-wrap items-center justify-between gap-2 text-xs text-gray-500 mb-3">
+                    <span class="font-semibold text-brand-800 uppercase tracking-wider bg-brand-50 px-2.5 py-1 rounded">Technology & Statecraft</span>
+                    <time datetime="2026-08-25">August 25, 2026</time>
+                </div>
+                <h2 class="text-2xl font-serif font-bold text-brand-900 mb-3 hover:text-brand-800">
+                    The Silent War: Cyber Security as Foreign Policy
+                </h2>
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed mb-6">
+                    Evaluating state-sponsored digital deterrence and the legal boundaries governing non-kinetic confrontations between international superpowers.
+                </p>
+                <div class="flex flex-wrap items-center gap-3 pt-2">
+                    <a href="https://syedfaizgeo.substack.com" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-brand-900 hover:bg-brand-800 text-white text-xs sm:text-sm font-semibold px-4 py-2 rounded shadow-sm transition">
+                        <span>Read on Substack</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                    <a href="https://www.threads.com/@syedfaiz.geo" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gray-100 hover:bg-gray-200 text-brand-900 text-xs sm:text-sm font-semibold px-4 py-2 rounded border border-gray-200 transition">
+                        <i class="fa-brands fa-threads"></i>
+                        <span>Discuss on Threads</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+        <!-- Substack Box at the bottom of the feed -->
+        <div class="bg-brand-900 text-white p-8 rounded-2xl shadow-lg text-center space-y-4 mt-12">
+            <h3 class="text-2xl font-serif font-bold">Never Miss an Analysis</h3>
+            <p class="text-gray-300 text-sm max-w-md mx-auto">
+                Join our newsletter directly on Substack to receive independent geopolitical briefings delivered straight to your inbox.
+            </p>
+            <a href="https://syedfaizgeo.substack.com" target="_blank" rel="noopener noreferrer" class="inline-block bg-white text-brand-900 font-semibold px-6 py-2.5 rounded hover:bg-gray-100 transition shadow text-sm">
+                Subscribe on Substack &rarr;
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-900 text-white py-8 text-center border-t border-brand-800 mt-auto">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-gray-400 text-xs">
+                &copy; <span id="year"></span> Syed Faiz Afroz. All rights reserved. &bull; <a href="index.html" class="hover:underline">Home</a> &bull; <a href="posts.html" class="hover:underline">Commentary</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+  </html>
+
