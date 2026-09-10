@@ -1,682 +1,1099 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Geopolitical Commentary | Syed Faiz Geo</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <script src="https://cdn.tailwindcss.com"></script>
+<title>Geopolitical Commentary | Syed Faiz Geo</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<style>
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f8f8f6;
-      color: #111;
-    }
+*{
+box-sizing:border-box;
+}
 
-    .serif {
-      font-family: Georgia, serif;
-    }
+html{
+scroll-behavior:smooth;
+}
 
-    .slides {
-      display: flex;
-      transition: transform 0.6s ease;
-    }
+body{
+margin:0;
+background:#f5f5f3;
+color:#111;
+font-family:Arial,Helvetica,sans-serif;
+overflow-x:hidden;
+}
 
-    .slide {
-      min-width: 100%;
-    }
+a{
+text-decoration:none;
+color:inherit;
+}
 
-    .post-image {
-      width: 100%;
-      height: auto;
-      max-height: 750px;
-      object-fit: contain;
-      display: block;
-      background: #f1f1ef;
-    }
 
-    .slider-box {
-      position: relative;
-      overflow: hidden;
-      border-radius: 18px;
-      background: white;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
+/* ================= ANIMATION ================= */
 
-    .arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px;
-      height: 44px;
-      border: none;
-      border-radius: 50%;
-      background: white;
-      color: black;
-      font-size: 22px;
-      cursor: pointer;
-      z-index: 10;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.18);
-    }
+body::before{
+content:"";
+position:fixed;
+width:550px;
+height:550px;
+right:-220px;
+top:-200px;
+border-radius:50%;
+background:linear-gradient(
+135deg,
+rgba(30,80,255,.10),
+rgba(150,30,255,.08),
+rgba(255,50,80,.06)
+);
+filter:blur(80px);
+animation:colorMove 12s ease-in-out infinite alternate;
+pointer-events:none;
+z-index:-1;
+}
 
-    .arrow:hover {
-      background: black;
-      color: white;
-    }
+@keyframes colorMove{
 
-    .left {
-      left: 15px;
-    }
+0%{
+transform:translate(0,0) scale(1);
+}
 
-    .right {
-      right: 15px;
-    }
+50%{
+transform:translate(-80px,80px) scale(1.2);
+}
 
-    .original-button {
-      background: #111;
-      color: white;
-      text-decoration: none;
-      padding: 12px 20px;
-      border-radius: 999px;
-      font-size: 14px;
-      font-weight: bold;
-      display: inline-block;
-    }
+100%{
+transform:translate(30px,140px) scale(1);
+}
 
-    .original-button:hover {
-      background: #333;
-    }
+}
 
-    .dot {
-      width: 9px;
-      height: 9px;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      background: #d1d1d1;
-    }
 
-    .dot.active {
-      background: #111;
-    }
+/* ================= HEADER ================= */
 
-    @media (max-width: 600px) {
-      .arrow {
-        width: 38px;
-        height: 38px;
-        font-size: 18px;
-      }
+.header{
+background:rgba(255,255,255,.88);
+backdrop-filter:blur(18px);
+-webkit-backdrop-filter:blur(18px);
+border-bottom:1px solid #e5e5e5;
+position:sticky;
+top:0;
+z-index:100;
+}
 
-      .left {
-        left: 8px;
-      }
+.header-inner{
+max-width:1180px;
+height:78px;
+margin:auto;
+padding:0 24px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+}
 
-      .right {
-        right: 8px;
-      }
+.brand{
+display:flex;
+align-items:center;
+gap:12px;
+}
 
-      .post-image {
-        max-height: 600px;
-      }
-    }
-  </style>
+.logo{
+width:45px;
+height:45px;
+border-radius:50%;
+background:#111;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:13px;
+font-weight:900;
+animation:logoPulse 5s infinite;
+}
+
+@keyframes logoPulse{
+
+0%,100%{
+box-shadow:0 0 0 0 rgba(40,70,255,0);
+}
+
+50%{
+box-shadow:0 0 0 7px rgba(40,70,255,.08);
+}
+
+}
+
+.brand-name{
+font-size:18px;
+font-weight:800;
+}
+
+.brand-sub{
+font-size:10px;
+color:#777;
+margin-top:4px;
+}
+
+.nav{
+display:flex;
+gap:26px;
+font-size:13px;
+font-weight:700;
+}
+
+.nav a:hover{
+color:#666;
+}
+
+
+/* ================= HERO ================= */
+
+.hero{
+max-width:1000px;
+margin:auto;
+padding:75px 22px 40px;
+text-align:center;
+}
+
+.kicker{
+font-size:11px;
+font-weight:800;
+letter-spacing:3px;
+color:#777;
+margin-bottom:17px;
+}
+
+.hero h1{
+font-family:Georgia,serif;
+font-size:clamp(40px,6vw,65px);
+line-height:1.05;
+letter-spacing:-2px;
+margin:0;
+}
+
+.hero h1 span{
+background:linear-gradient(
+90deg,
+#111,
+#254cff,
+#8b32ff,
+#111
+);
+background-size:300% 100%;
+-webkit-background-clip:text;
+background-clip:text;
+color:transparent;
+animation:gradientMove 8s ease infinite;
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:0%;
+}
+
+50%{
+background-position:100%;
+}
+
+100%{
+background-position:0%;
+}
+
+}
+
+.hero p{
+font-size:16px;
+line-height:1.6;
+color:#666;
+margin:20px auto 0;
+max-width:650px;
+}
+
+
+/* ================= SLIDER ================= */
+
+.wrapper{
+max-width:1000px;
+margin:auto;
+padding:10px 20px 80px;
+}
+
+.slider{
+position:relative;
+overflow:hidden;
+background:white;
+border:1px solid #e5e5e5;
+border-radius:23px;
+box-shadow:0 20px 55px rgba(0,0,0,.09);
+}
+
+.slides{
+display:flex;
+transition:transform .65s cubic-bezier(.22,.61,.36,1);
+}
+
+.slide{
+min-width:100%;
+}
+
+.image-area{
+position:relative;
+background:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.post-image{
+width:100%;
+height:auto;
+max-height:720px;
+object-fit:contain;
+display:block;
+}
+
+.label{
+position:absolute;
+top:18px;
+left:18px;
+background:rgba(0,0,0,.8);
+color:white;
+padding:8px 11px;
+border-radius:30px;
+font-size:9px;
+font-weight:800;
+letter-spacing:1.5px;
+z-index:2;
+}
+
+
+/* ================= INFO ================= */
+
+.info{
+padding:18px 20px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:15px;
+}
+
+.date{
+font-size:13px;
+color:#777;
+display:flex;
+align-items:center;
+gap:7px;
+}
+
+.clock{
+font-size:17px;
+}
+
+.original{
+background:#111;
+color:white;
+padding:12px 20px;
+border-radius:30px;
+font-size:13px;
+font-weight:700;
+transition:.25s;
+white-space:nowrap;
+}
+
+.original:hover{
+background:#333;
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+
+/* ================= ARROWS ================= */
+
+.arrow{
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:44px;
+height:44px;
+border:1px solid #ddd;
+border-radius:50%;
+background:rgba(255,255,255,.96);
+font-size:20px;
+cursor:pointer;
+z-index:5;
+box-shadow:0 5px 20px rgba(0,0,0,.15);
+transition:.25s;
+}
+
+.arrow:hover{
+background:#111;
+color:white;
+border-color:#111;
+}
+
+.prev{
+left:16px;
+}
+
+.next{
+right:16px;
+}
+
+
+/* ================= COUNTER ================= */
+
+.slider-footer{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:18px;
+margin-top:22px;
+}
+
+.counter{
+font-size:12px;
+font-weight:800;
+letter-spacing:1px;
+}
+
+.dots{
+display:flex;
+gap:7px;
+}
+
+.dot{
+width:8px;
+height:8px;
+padding:0;
+border:0;
+border-radius:50%;
+background:#d1d1d1;
+cursor:pointer;
+transition:.25s;
+}
+
+.dot.active{
+background:#111;
+width:22px;
+border-radius:10px;
+}
+
+
+/* ================= PROGRESS ================= */
+
+.progress{
+height:2px;
+background:#ddd;
+margin-top:18px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+background:#111;
+width:20%;
+transition:width .6s ease;
+}
+
+
+/* ================= FOOTER ================= */
+
+.footer{
+border-top:1px solid #e5e5e5;
+background:white;
+text-align:center;
+padding:32px 20px;
+font-size:11px;
+color:#777;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media(max-width:600px){
+
+.header-inner{
+height:70px;
+padding:0 17px;
+}
+
+.nav{
+gap:14px;
+}
+
+.nav a{
+display:none;
+}
+
+.nav a:last-child{
+display:block;
+}
+
+.brand-name{
+font-size:16px;
+}
+
+.hero{
+padding:55px 18px 30px;
+}
+
+.hero h1{
+font-size:42px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.wrapper{
+padding:5px 12px 60px;
+}
+
+.slider{
+border-radius:17px;
+}
+
+.post-image{
+max-height:600px;
+}
+
+.info{
+padding:15px;
+}
+
+.original{
+padding:10px 15px;
+font-size:12px;
+}
+
+.arrow{
+width:38px;
+height:38px;
+font-size:17px;
+}
+
+.prev{
+left:8px;
+}
+
+.next{
+right:8px;
+}
+
+.label{
+top:12px;
+left:12px;
+}
+
+}
+
+
+/* ================= REDUCED MOTION ================= */
+
+@media(prefers-reduced-motion:reduce){
+
+*{
+animation:none!important;
+transition:none!important;
+}
+
+html{
+scroll-behavior:auto;
+}
+
+}
+
+</style>
+
 </head>
+
 
 <body>
 
-  <!-- HEADER -->
-  <header style="background:white;border-bottom:1px solid #e5e5e5;">
-    <div style="
-      max-width:1100px;
-      margin:auto;
-      padding:18px 20px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-    ">
-
-      <a href="index.html"
-         style="
-           text-decoration:none;
-           color:#111;
-           display:flex;
-           align-items:center;
-           gap:12px;
-         ">
-
-        <div style="
-          width:44px;
-          height:44px;
-          border-radius:50%;
-          background:#111;
-          color:white;
-          display:flex;
-          align-items:center;
-          justify-content:center;
-          font-weight:800;
-          font-size:13px;
-        ">
-          SFA.
-        </div>
-
-        <div>
-          <div style="
-            font-size:18px;
-            font-weight:700;
-            line-height:1;
-          ">
-            Syed Faiz Geo
-          </div>
-
-          <div style="
-            font-size:11px;
-            color:#777;
-            margin-top:5px;
-          ">
-            Independent Journalism
-          </div>
-        </div>
-
-      </a>
-
-      <nav style="
-        display:flex;
-        gap:22px;
-        font-size:14px;
-        font-weight:600;
-      ">
-
-        <a href="index.html"
-           style="color:#111;text-decoration:none;">
-          Home
-        </a>
-
-        <a href="posts.html"
-           style="color:#111;text-decoration:none;">
-          Commentary
-        </a>
-
-      </nav>
-
-    </div>
-  </header>
-
-
-  <!-- HEADING -->
-  <section style="
-    max-width:900px;
-    margin:auto;
-    padding:65px 20px 35px;
-    text-align:center;
-  ">
-
-    <div style="
-      font-size:12px;
-      letter-spacing:3px;
-      font-weight:800;
-      color:#777;
-      margin-bottom:15px;
-    ">
-      MY LATEST &amp; POPULAR COMMENTARY
-    </div>
-
-    <h1 class="serif" style="
-      font-size:clamp(36px,6vw,62px);
-      margin:0 0 18px;
-      line-height:1.1;
-    ">
-      Geopolitical Commentary
-    </h1>
-
-    <p style="
-      color:#666;
-      font-size:16px;
-      margin:0;
-    ">
-      What I see. What I question. What the headlines leave behind.
-    </p>
-
-  </section>
-
-
-  <!-- SLIDER -->
-  <main style="
-    max-width:900px;
-    margin:auto;
-    padding:10px 20px 80px;
-  ">
-
-    <div class="slider-box">
-
-      <div class="slides" id="slides">
-
-
-        <!-- POST 1 -->
-        <div class="slide">
-
-          <img
-            src="images/posts/anne-frank-palestine.jpg"
-            class="post-image"
-            alt="Anne Frank Palestine commentary"
-          >
-
-          <div style="
-            padding:18px 20px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:15px;
-          ">
-
-            <div style="
-              color:#777;
-              font-size:14px;
-            ">
-              ◷ &nbsp;07/11
-            </div>
-
-            <a
-              href="https://www.threads.com/share/BAaVJNiwvM/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="original-button"
-            >
-              Read Original →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <!-- POST 2 -->
-        <div class="slide">
-
-          <img
-            src="images/posts/children-fifa.jpg"
-            class="post-image"
-            alt="Children FIFA World Cup commentary"
-          >
-
-          <div style="
-            padding:18px 20px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:15px;
-          ">
-
-            <div style="
-              color:#777;
-              font-size:14px;
-            ">
-              ◷ &nbsp;07/21
-            </div>
-
-            <a
-              href="https://www.threads.com/share/BAagAnnjlK/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="original-button"
-            >
-              Read Original →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <!-- POST 3 -->
-        <div class="slide">
-
-          <img
-            src="images/posts/ms-rachel.jpg"
-            class="post-image"
-            alt="Ms Rachel commentary"
-          >
-
-          <div style="
-            padding:18px 20px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:15px;
-          ">
-
-            <div style="
-              color:#777;
-              font-size:14px;
-            ">
-              ◷ &nbsp;08/01
-            </div>
-
-            <a
-              href="https://www.threads.com/share/BAUc6mkKWU/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="original-button"
-            >
-              Read Original →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <!-- POST 4 -->
-        <div class="slide">
-
-          <img
-            src="images/posts/nyc-subway-heat.jpg"
-            class="post-image"
-            alt="NYC subway heat commentary"
-          >
-
-          <div style="
-            padding:18px 20px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:15px;
-          ">
-
-            <div style="
-              color:#777;
-              font-size:14px;
-            ">
-              ◷ &nbsp;08/11
-            </div>
-
-            <a
-              href="https://www.threads.com/share/BAcsiBV8N0/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="original-button"
-            >
-              Read Original →
-            </a>
-
-          </div>
-
-        </div>
-
-
-        <!-- POST 5 -->
-        <div class="slide">
-
-          <img
-            src="images/posts/clarence-thomas.jpg"
-            class="post-image"
-            alt="Clarence Thomas commentary"
-          >
-
-          <div style="
-            padding:18px 20px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:15px;
-          ">
-
-            <div style="
-              color:#777;
-              font-size:14px;
-            ">
-              ◷ &nbsp;08/25
-            </div>
-
-            <a
-              href="https://substack.com/@syedfaizgeo/note/c-322616042?r=8kg1ua"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="original-button"
-            >
-              Read Original →
-            </a>
-
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <!-- LEFT ARROW -->
-      <button
-        class="arrow left"
-        onclick="previousSlide()"
-        aria-label="Previous"
-      >
-        ←
-      </button>
-
-
-      <!-- RIGHT ARROW -->
-      <button
-        class="arrow right"
-        onclick="nextSlide()"
-        aria-label="Next"
-      >
-        →
-      </button>
-
-    </div>
-
-
-    <!-- COUNTER + DOTS -->
-    <div style="
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:18px;
-      margin-top:22px;
-    ">
 
-      <span
-        id="counter"
-        style="
-          font-size:13px;
-          font-weight:700;
-        "
-      >
-        01 / 05
-      </span>
+<!-- HEADER -->
 
-      <div style="
-        display:flex;
-        gap:8px;
-      ">
+<header class="header">
 
-        <button class="dot active" onclick="goToSlide(0)"></button>
-        <button class="dot" onclick="goToSlide(1)"></button>
-        <button class="dot" onclick="goToSlide(2)"></button>
-        <button class="dot" onclick="goToSlide(3)"></button>
-        <button class="dot" onclick="goToSlide(4)"></button>
+<div class="header-inner">
 
-      </div>
+<a href="index.html" class="brand">
 
-    </div>
+<div class="logo">
+SFA.
+</div>
 
-  </main>
+<div>
 
+<div class="brand-name">
+Syed Faiz Geo
+</div>
 
-  <!-- FOOTER -->
-  <footer style="
-    border-top:1px solid #e5e5e5;
-    background:white;
-    text-align:center;
-    padding:28px 20px;
-    color:#777;
-    font-size:13px;
-  ">
-    © 2026 Syed Faiz Geo. Independent Journalism.
-  </footer>
+<div class="brand-sub">
+Independent Journalism
+</div>
 
+</div>
 
-  <script>
+</a>
 
-    let currentSlide = 0;
 
-    const totalSlides = 5;
+<nav class="nav">
 
-    const slides = document.getElementById("slides");
+<a href="index.html">
+Home
+</a>
 
-    const counter = document.getElementById("counter");
+<a href="index.html#about">
+About
+</a>
 
-    const dots = document.querySelectorAll(".dot");
+<a href="index.html#books">
+Books
+</a>
 
-    let autoSlide;
+</nav>
 
+</div>
 
-    function showSlide(index) {
+</header>
 
-      if (index >= totalSlides) {
-        index = 0;
-      }
 
-      if (index < 0) {
-        index = totalSlides - 1;
-      }
 
-      currentSlide = index;
+<!-- HERO -->
 
-      slides.style.transform =
-        "translateX(-" + (currentSlide * 100) + "%)";
+<section class="hero">
 
-      counter.textContent =
-        String(currentSlide + 1).padStart(2, "0") + " / 05";
+<div class="kicker">
+MY LATEST &amp; POPULAR COMMENTARY
+</div>
 
+<h1>
+Geopolitical <span>Commentary</span>
+</h1>
 
-      dots.forEach(function(dot, i) {
+<p>
+What I see. What I question. What the headlines leave behind.
+</p>
 
-        if (i === currentSlide) {
-          dot.classList.add("active");
-        } else {
-          dot.classList.remove("active");
-        }
+</section>
 
-      });
 
-    }
 
+<!-- SLIDER -->
 
-    function nextSlide() {
-      showSlide(currentSlide + 1);
-    }
+<main class="wrapper">
 
+<div class="slider">
 
-    function previousSlide() {
-      showSlide(currentSlide - 1);
-    }
+<div class="slides" id="slides">
 
 
-    function goToSlide(index) {
-      showSlide(index);
-      restartAutoSlide();
-    }
+<!-- POST 1 -->
 
+<article class="slide">
 
-    function startAutoSlide() {
+<div class="image-area">
 
-      autoSlide = setInterval(function() {
-        nextSlide();
-      }, 6000);
+<span class="label">
+COMMENTARY
+</span>
 
-    }
+<img
+src="images/posts/anne-frank-palestine.jpg"
+class="post-image"
+alt="Anne Frank Palestine commentary"
+>
 
+</div>
 
-    function restartAutoSlide() {
+<div class="info">
 
-      clearInterval(autoSlide);
+<div class="date">
 
-      startAutoSlide();
+<span class="clock">◷</span>
 
-    }
+<span>07/11</span>
 
+</div>
 
-    /* PAUSE ON DESKTOP HOVER */
+<a
+href="https://www.threads.com/share/BAaVJNiwvM/"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
 
-    const slider = document.querySelector(".slider-box");
+</div>
 
-    slider.addEventListener("mouseenter", function() {
-      clearInterval(autoSlide);
-    });
+</article>
 
 
-    slider.addEventListener("mouseleave", function() {
-      startAutoSlide();
-    });
 
+<!-- POST 2 -->
 
-    /* MOBILE SWIPE */
+<article class="slide">
 
-    let touchStartX = 0;
+<div class="image-area">
 
-    let touchEndX = 0;
+<span class="label">
+COMMENTARY
+</span>
 
+<img
+src="images/posts/children-fifa.jpg"
+class="post-image"
+alt="Children FIFA World Cup commentary"
+>
 
-    slider.addEventListener("touchstart", function(event) {
+</div>
 
-      touchStartX = event.changedTouches[0].screenX;
+<div class="info">
 
-      clearInterval(autoSlide);
+<div class="date">
 
-    }, { passive:true });
+<span class="clock">◷</span>
 
+<span>07/21</span>
 
-    slider.addEventListener("touchend", function(event) {
+</div>
 
-      touchEndX = event.changedTouches[0].screenX;
+<a
+href="https://www.threads.com/share/BAagAnnjlK/"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
 
+</div>
 
-      if (touchStartX - touchEndX > 50) {
-        nextSlide();
-      }
+</article>
 
 
-      if (touchEndX - touchStartX > 50) {
-        previousSlide();
-      }
 
+<!-- POST 3 -->
 
-      startAutoSlide();
+<article class="slide">
 
-    }, { passive:true });
+<div class="image-area">
 
+<span class="label">
+COMMENTARY
+</span>
 
-    /* KEYBOARD */
+<img
+src="images/posts/ms-rachel.jpg"
+class="post-image"
+alt="Ms Rachel commentary"
+>
 
-    document.addEventListener("keydown", function(event) {
+</div>
 
-      if (event.key === "ArrowRight") {
-        nextSlide();
-        restartAutoSlide();
-      }
+<div class="info">
 
-      if (event.key === "ArrowLeft") {
-        previousSlide();
-        restartAutoSlide();
-      }
+<div class="date">
 
-    });
+<span class="clock">◷</span>
 
+<span>08/01</span>
 
-    /* START */
+</div>
 
-    showSlide(0);
+<a
+href="https://www.threads.com/share/BAUc6mkKWU/"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
 
-    startAutoSlide();
+</div>
 
-  </script>
+</article>
+
+
+
+<!-- POST 4 -->
+
+<article class="slide">
+
+<div class="image-area">
+
+<span class="label">
+COMMENTARY
+</span>
+
+<img
+src="images/posts/nyc-subway-heat.jpg"
+class="post-image"
+alt="NYC subway heat commentary"
+>
+
+</div>
+
+<div class="info">
+
+<div class="date">
+
+<span class="clock">◷</span>
+
+<span>08/11</span>
+
+</div>
+
+<a
+href="https://www.threads.com/share/BAcsiBV8N0/"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
+
+</div>
+
+</article>
+
+
+
+<!-- POST 5 -->
+
+<article class="slide">
+
+<div class="image-area">
+
+<span class="label">
+COMMENTARY
+</span>
+
+<img
+src="images/posts/clarence-thomas.jpg"
+class="post-image"
+alt="Clarence Thomas commentary"
+>
+
+</div>
+
+<div class="info">
+
+<div class="date">
+
+<span class="clock">◷</span>
+
+<span>08/25</span>
+
+</div>
+
+<a
+href="https://substack.com/@syedfaizgeo/note/c-322616042?r=8kg1ua"
+target="_blank"
+rel="noopener noreferrer"
+class="original"
+>
+Read Original →
+</a>
+
+</div>
+
+</article>
+
+
+</div>
+
+
+<button
+class="arrow prev"
+onclick="previousSlide()"
+aria-label="Previous commentary"
+>
+←
+</button>
+
+
+<button
+class="arrow next"
+onclick="nextSlide()"
+aria-label="Next commentary"
+>
+→
+</button>
+
+
+</div>
+
+
+
+<div class="slider-footer">
+
+<span class="counter" id="counter">
+01 / 05
+</span>
+
+<div class="dots">
+
+<button class="dot active" onclick="goToSlide(0)"></button>
+
+<button class="dot" onclick="goToSlide(1)"></button>
+
+<button class="dot" onclick="goToSlide(2)"></button>
+
+<button class="dot" onclick="goToSlide(3)"></button>
+
+<button class="dot" onclick="goToSlide(4)"></button>
+
+</div>
+
+</div>
+
+
+<div class="progress">
+
+<div
+class="progress-bar"
+id="progressBar"
+></div>
+
+</div>
+
+</main>
+
+
+
+<footer class="footer">
+
+<strong>Syed Faiz Geo</strong>
+
+<br><br>
+
+Independent Journalism • Political Commentary • Books
+
+<br><br>
+
+© 2026 Syed Faiz Geo. All rights reserved.
+
+</footer>
+
+
+
+<script>
+
+const slides =
+document.getElementById("slides");
+
+const counter =
+document.getElementById("counter");
+
+const dots =
+document.querySelectorAll(".dot");
+
+const progressBar =
+document.getElementById("progressBar");
+
+const slider =
+document.querySelector(".slider");
+
+const total = 5;
+
+let current = 0;
+
+let timer;
+
+
+
+function showSlide(index){
+
+if(index >= total){
+index = 0;
+}
+
+if(index < 0){
+index = total - 1;
+}
+
+current = index;
+
+slides.style.transform =
+"translateX(-" +
+(current * 100) +
+"%)";
+
+counter.textContent =
+String(current + 1).padStart(2,"0") +
+" / 05";
+
+
+dots.forEach((dot,i)=>{
+
+dot.classList.toggle(
+"active",
+i === current
+);
+
+});
+
+
+progressBar.style.width =
+((current + 1) / total * 100) +
+"%";
+
+}
+
+
+
+function nextSlide(){
+
+showSlide(current + 1);
+
+}
+
+
+
+function previousSlide(){
+
+showSlide(current - 1);
+
+}
+
+
+
+function goToSlide(index){
+
+showSlide(index);
+
+restartTimer();
+
+}
+
+
+
+function startTimer(){
+
+timer =
+setInterval(
+nextSlide,
+6000
+);
+
+}
+
+
+
+function restartTimer(){
+
+clearInterval(timer);
+
+startTimer();
+
+}
+
+
+/* HOVER PAUSE */
+
+slider.addEventListener(
+"mouseenter",
+()=>{
+clearInterval(timer);
+}
+);
+
+
+slider.addEventListener(
+"mouseleave",
+()=>{
+startTimer();
+}
+);
+
+
+/* TOUCH */
+
+let startX = 0;
+
+let endX = 0;
+
+
+slider.addEventListener(
+"touchstart",
+(e)=>{
+
+startX =
+e.changedTouches[0].screenX;
+
+clearInterval(timer);
+
+},
+{passive:true}
+);
+
+
+slider.addEventListener(
+"touchend",
+(e)=>{
+
+endX =
+e.changedTouches[0].screenX;
+
+
+if(startX - endX > 50){
+
+nextSlide();
+
+}
+
+
+if(endX - startX > 50){
+
+previousSlide();
+
+}
+
+
+startTimer();
+
+},
+{passive:true}
+);
+
+
+/* KEYBOARD */
+
+document.addEventListener(
+"keydown",
+(e)=>{
+
+if(e.key === "ArrowRight"){
+
+nextSlide();
+
+restartTimer();
+
+}
+
+if(e.key === "ArrowLeft"){
+
+previousSlide();
+
+restartTimer();
+
+}
+
+}
+);
+
+
+showSlide(0);
+
+startTimer();
+
+</script>
+
 
 </body>
 </html>
